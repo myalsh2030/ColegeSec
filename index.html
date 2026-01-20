@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فراغات المتدربين والمدربين</title>
+    <title>تطبيق جداول الشعب التدريبية</title>
 
     <!-- Google Fonts - Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,18 +125,62 @@
             text-align: center;
         }
 
-        .upload-subtitle {
+        /* بطاقات المميزات */
+        .features-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.6);
+        }
+
+        .feature-icon {
+            width: 18px !important;
+            height: 18px !important;
+            color: #a5b4fc !important;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .upload-privacy {
+            color: #22c55e;
+            font-size: 0.85rem;
+            margin-bottom: 2.5rem;
             text-align: center;
+            background: rgba(34, 197, 94, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            display: inline-block;
         }
 
         .upload-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-            max-width: 900px;
+            max-width: 1200px;
             width: 100%;
             margin-bottom: 2rem;
         }
@@ -205,6 +249,40 @@
             display: none;
             color: var(--color-success);
             font-weight: 600;
+        }
+
+        /* زر حذف الملف */
+        .delete-file-btn {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 8px;
+            padding: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #f87171;
+        }
+
+        .delete-file-btn:hover {
+            background: rgba(239, 68, 68, 0.4);
+            border-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+            transform: scale(1.1);
+        }
+
+        .delete-file-btn i {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* إظهار زر الحذف عند رفع الملف */
+        .upload-zone.uploaded .delete-file-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .upload-zone.uploaded .upload-zone-success {
@@ -341,11 +419,136 @@
         .section-row.visible-row {
             background: rgba(30, 41, 59, 0.6) !important;
             border: 1px solid rgba(147, 51, 234, 0.2);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* توهج جذب الانتباه للشعب الظاهرة */
+        .section-row.visible-row.attention-glow {
+            border-color: #22d3ee !important;
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.5),
+                0 0 40px rgba(34, 211, 238, 0.3),
+                inset 0 0 10px rgba(34, 211, 238, 0.1);
+            animation: attentionPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes attentionPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(34, 211, 238, 0.5),
+                    0 0 40px rgba(34, 211, 238, 0.3);
+                border-color: #22d3ee;
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(34, 211, 238, 0.7),
+                    0 0 60px rgba(34, 211, 238, 0.4);
+                border-color: #67e8f9;
+            }
         }
 
         .section-row.target-row {
             background: rgba(60, 40, 20, 0.4) !important;
             border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        /* صف أدوات التحكم */
+        .section-row.controls-row {
+            background: rgba(30, 41, 59, 0.6) !important;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            justify-content: flex-start;
+        }
+
+        .controls-row .btn-home {
+            margin-left: auto;
+        }
+
+        .controls-row .btn-home i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .controls-row .btn-help {
+            background: rgba(34, 211, 238, 0.15);
+            border: 1px solid rgba(34, 211, 238, 0.4);
+            color: #22d3ee;
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .controls-row .btn-help:hover {
+            background: rgba(34, 211, 238, 0.3);
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
+        }
+
+        .controls-row .btn-help i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .controls-row .toggles-group {
+            flex: 1;
+            justify-content: center;
+        }
+
+        /* صف بحث أوقات الفراغ - لون سماوي مميز */
+        .section-row.freetime-row {
+            background: rgba(6, 78, 95, 0.4) !important;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .freetime-section-input input {
+            border-color: rgba(6, 182, 212, 0.3) !important;
+        }
+
+        .freetime-section-input input:focus {
+            border-color: rgba(6, 182, 212, 0.6) !important;
+            box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.15);
+        }
+
+        .freetime-row .filter-section-label {
+            color: #22d3ee;
+        }
+
+        /* زر البحث عن موعد - نمط الإدخال */
+        .freetime-input-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .freetime-search-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(6, 182, 212, 0.1);
+            color: #22d3ee;
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            min-width: 140px;
+        }
+
+        .freetime-search-btn:hover {
+            background: rgba(6, 182, 212, 0.25);
+            border-color: #22d3ee;
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .freetime-search-btn i {
+            width: 16px;
+            height: 16px;
         }
 
         /* Layout Adjustments for condensed width */
@@ -743,7 +946,10 @@
             background: var(--bg-card);
             backdrop-filter: blur(10px);
             border-radius: var(--border-radius);
-            overflow: auto;
+            overflow-x: auto;
+            overflow-y: auto;
+            scrollbar-gutter: stable;
+            /* حجز مساحة لشريط التمرير دائماً لمحاذاة الأعمدة */
             border: 1px solid var(--border-color);
         }
 
@@ -767,6 +973,25 @@
             text-align: center;
             border-bottom: 1px solid var(--border-color);
             white-space: nowrap;
+        }
+
+        /* رسالة الجدول الفارغ */
+        .empty-table-message {
+            text-align: center !important;
+            padding: 3rem 1rem !important;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            font-weight: 500;
+            background: transparent !important;
+        }
+
+        .empty-table-message i {
+            width: 48px;
+            height: 48px;
+            display: block;
+            margin: 0 auto 1rem;
+            opacity: 0.4;
+            color: var(--color-accent);
         }
 
         /* تمييز رؤوس الجداول */
@@ -987,10 +1212,7 @@
            تنسيق المجموعات المدمجة
            ═══════════════════════════════════════════════════════════════ */
         .merged-cell {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
+            text-align: center !important;
             cursor: pointer;
         }
 
@@ -1002,15 +1224,9 @@
             min-width: 28px;
             height: 28px;
             border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .merge-label {
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            white-space: nowrap;
         }
 
         /* تمييز صف المجموعة المدمجة */
@@ -1032,6 +1248,133 @@
             50% {
                 box-shadow: 0 0 8px 2px rgba(99, 102, 241, 0.6);
             }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           Tooltip المجموعات المدمجة
+           ═══════════════════════════════════════════════════════════════ */
+        .merged-cell {
+            position: relative;
+        }
+
+        .merged-tooltip {
+            position: fixed;
+            z-index: 9999;
+            background: var(--bg-card);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 0.75rem;
+            min-width: 320px;
+            max-width: 400px;
+            max-height: 300px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            display: none;
+            text-align: right;
+            direction: rtl;
+            pointer-events: none;
+        }
+
+        .merged-tooltip.visible {
+            display: block;
+            animation: tooltipFade 0.2s ease;
+        }
+
+        @keyframes tooltipFade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes tooltipFade {
+            from {
+                opacity: 0;
+                transform: translateX(50%) translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(50%) translateY(0);
+            }
+        }
+
+        .merged-tooltip-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .merged-tooltip-header i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .merged-tooltip-list {
+            max-height: 180px;
+            overflow-y: auto;
+            padding-left: 4px;
+        }
+
+        .merged-tooltip-row {
+            display: grid;
+            grid-template-columns: 24px 1fr 90px;
+            gap: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.75rem;
+            align-items: center;
+        }
+
+        .merged-tooltip-row:last-child {
+            border-bottom: none;
+        }
+
+        .row-num {
+            color: var(--text-muted);
+            text-align: center;
+            font-size: 0.65rem;
+        }
+
+        .row-name {
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .row-id {
+            color: var(--color-accent);
+            font-family: monospace;
+            font-size: 0.7rem;
+            text-align: left;
+            direction: ltr;
+        }
+
+        .merged-tooltip-hint {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        .merged-tooltip-hint i {
+            width: 12px;
+            height: 12px;
+            color: var(--color-accent);
         }
 
         /* البالون */
@@ -1368,8 +1711,11 @@
         .day-cell {
             position: relative;
             min-width: 180px;
+            width: 100%;
+            /* ملء عرض الخلية بالكامل */
             height: 40px;
-            background: rgba(0, 0, 0, 0.2);
+            background: transparent;
+            /* شفاف - الخلفية تأتي من td.day-column */
             border-radius: 6px;
             overflow: hidden;
         }
@@ -1520,6 +1866,73 @@
 
             50% {
                 background: rgba(239, 68, 68, 0.4);
+            }
+        }
+
+        /* صناديق الفترات المعتمدة - سماوي */
+        .freetime-period-slot {
+            position: absolute;
+            top: 2px;
+            bottom: 2px;
+            border-radius: 4px;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+            cursor: help;
+        }
+
+        .freetime-period-slot .period-label {
+            font-size: 0.6rem;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* متاح - سماوي */
+        .freetime-period-slot.freetime-available {
+            border: 2px dashed #22d3ee;
+            background: rgba(34, 211, 238, 0.25);
+            animation: freetimePulse 1.5s ease-in-out infinite;
+            color: #67e8f9;
+        }
+
+        .freetime-period-slot.freetime-available:hover {
+            background: rgba(34, 211, 238, 0.4);
+            border-style: solid;
+        }
+
+        /* تعارض - برتقالي */
+        .freetime-period-slot.freetime-conflict {
+            border: 3px solid #f97316;
+            background: rgba(249, 115, 22, 0.35);
+            animation: freetimeConflictPulse 1s ease-in-out infinite;
+            color: #fdba74;
+            z-index: 6;
+            box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
+        }
+
+        @keyframes freetimePulse {
+
+            0%,
+            100% {
+                background: rgba(34, 211, 238, 0.2);
+            }
+
+            50% {
+                background: rgba(34, 211, 238, 0.35);
+            }
+        }
+
+        @keyframes freetimeConflictPulse {
+
+            0%,
+            100% {
+                background: rgba(249, 115, 22, 0.25);
+            }
+
+            50% {
+                background: rgba(249, 115, 22, 0.45);
             }
         }
 
@@ -2189,6 +2602,484 @@
             height: 18px;
         }
 
+        /* ═══════════════════════════════════════════════════════════════
+           زر فراغات شعبة جديدة
+           ═══════════════════════════════════════════════════════════════ */
+        .availability-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .availability-btn:hover {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(6, 182, 212, 0.4));
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .availability-btn i {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* زر فراغات شعبة جديدة - الإصدار السماوي */
+        .availability-btn-cyan {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(6, 182, 212, 0.25));
+            color: #22d3ee;
+            border: 2px solid rgba(34, 211, 238, 0.5);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .availability-btn-cyan:hover {
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.35), rgba(6, 182, 212, 0.4));
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+            transform: translateY(-2px);
+            border-color: #22d3ee;
+        }
+
+        .availability-btn-cyan i {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           صفحة تحليل الفراغات
+           ═══════════════════════════════════════════════════════════════ */
+        .availability-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-primary);
+            z-index: 1000;
+            padding: 1rem;
+            overflow: auto;
+        }
+
+        .availability-page.show {
+            display: block;
+        }
+
+        .availability-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .availability-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .availability-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            flex: 1;
+            text-align: center;
+        }
+
+        .close-btn {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .close-btn:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        .close-btn i {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* دليل الألوان */
+        .availability-legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .legend-color.trainers-color {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        .legend-color.trainees-color {
+            background: linear-gradient(135deg, #10b981, #14b8a6);
+        }
+
+        .legend-color.percentage-color {
+            background: linear-gradient(135deg, #f59e0b, #eab308);
+        }
+
+        /* جدول التحليل */
+        .availability-table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .availability-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .availability-table th {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .availability-table th.period-header {
+            width: 120px;
+            text-align: right;
+        }
+
+        .availability-table td {
+            padding: 0.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .availability-table td.period-cell {
+            text-align: right;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .period-time {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* محتوى الخلية - 3 صفوف */
+        .availability-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            padding: 0.2rem;
+            border-radius: 8px;
+            background: var(--bg-card);
+        }
+
+        .cell-trainers,
+        .cell-trainees,
+        .cell-percentage {
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.7rem;
+        }
+
+        .cell-trainers {
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+        }
+
+        .cell-trainees {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+        }
+
+        .cell-percentage {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+        }
+
+        /* ألوان خلفية الفترات */
+        .period-group-1 {
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        /* أحمر */
+        .period-group-2 {
+            background: rgba(249, 115, 22, 0.05);
+        }
+
+        /* برتقالي */
+        .period-group-3 {
+            background: rgba(234, 179, 8, 0.05);
+        }
+
+        /* أصفر */
+        .period-group-4 {
+            background: rgba(34, 197, 94, 0.05);
+        }
+
+        /* أخضر */
+        .period-group-5 {
+            background: rgba(6, 182, 212, 0.05);
+        }
+
+        /* سماوي */
+
+        /* فاصل بين أيام الأسبوع */
+        .day-separator td {
+            border-top: 5px solid var(--bg-primary) !important;
+        }
+
+        /* خلية اليوم - فقط في صفحة التحليل */
+        .availability-table .day-cell {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            text-align: right;
+            padding: 0.5rem 0.6rem;
+            background: var(--bg-secondary);
+            white-space: nowrap;
+            width: 50px;
+        }
+
+        /* تنسيق رأس الفترة (عمودي) */
+        .availability-table th.period-header {
+            font-size: 0.75rem;
+            padding: 0.5rem;
+            min-width: 80px;
+        }
+
+        .availability-table th.period-header .period-time {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* توسيط عناوين الفترات */
+        .availability-table th.period-header {
+            text-align: center;
+        }
+
+        /* عمود التسميات */
+        .labels-header {
+            font-size: 0.8rem;
+            min-width: 138px;
+            text-align: center;
+        }
+
+        .labels-cell {
+            padding: 0.3rem;
+            vertical-align: middle;
+        }
+
+        /* تنسيق عمود البيان ليشابه خلايا الفترات */
+        .labels-cell-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 0.2rem;
+            border-radius: 8px;
+            background: var(--bg-card);
+        }
+
+        .label-row {
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .label-trainers {
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+        }
+
+        .label-trainees {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+        }
+
+        .label-percentage {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+        }
+
+        /* خلية بدون متدربين متاحين - إطار أحمر */
+        .availability-cell.no-availability {
+            border: 2px solid #ef4444;
+            border-radius: 8px;
+            box-shadow: 0 0 6px rgba(239, 68, 68, 0.3);
+        }
+
+        .availability-cell.no-availability .cell-trainees {
+            background: rgba(239, 68, 68, 0.3);
+            color: #f87171;
+        }
+
+        /* عدد المدربين = 0 - نص أحمر فقط */
+        .cell-trainers.no-trainers {
+            color: #ef4444 !important;
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        /* خلية قابلة للنقر */
+        .availability-cell.clickable {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .availability-cell.clickable:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+        }
+
+        /* خلية غير قابلة للنقر (حمراء) */
+        .availability-cell.no-availability:not(.selected) {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* خلية مختارة */
+        .availability-cell.selected {
+            border: 3px solid #22d3ee !important;
+            box-shadow: 0 0 12px rgba(34, 211, 238, 0.5) !important;
+            background: rgba(34, 211, 238, 0.1);
+        }
+
+        .availability-cell.selected::after {
+            content: '✓';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 18px;
+            height: 18px;
+            background: #22d3ee;
+            color: #0f172a;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* جعل الخلية position: relative للعلامة */
+        .availability-cell.clickable,
+        .availability-cell.selected {
+            position: relative;
+        }
+
+        /* أزرار صفحة التحليل */
+        .availability-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-right: auto;
+        }
+
+        .apply-periods-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            transition: all 0.3s;
+            opacity: 0.5;
+        }
+
+        .apply-periods-btn.active {
+            opacity: 1;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border-color: transparent;
+        }
+
+        .apply-periods-btn.active:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+
+        .reset-periods-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .reset-periods-btn:hover {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+
         .top-bar {
             position: relative;
             z-index: 500;
@@ -2262,25 +3153,269 @@
             display: flex;
             gap: 1rem;
         }
+
+        /* ═══════════════════════════════════════════════════════════════
+           الجولة التفاعلية - Interactive Tour
+           ═══════════════════════════════════════════════════════════════ */
+        .tour-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            z-index: 9998;
+            pointer-events: none;
+        }
+
+        .tour-overlay.active {
+            display: block;
+        }
+
+        .tour-spotlight {
+            display: none;
+            position: fixed;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            z-index: 9999;
+            pointer-events: none;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #22d3ee;
+        }
+
+        .tour-tooltip {
+            display: none;
+            position: fixed;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 2px solid #22d3ee;
+            border-radius: 12px;
+            padding: 1.25rem;
+            max-width: 320px;
+            z-index: 10000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 211, 238, 0.3);
+        }
+
+        .tour-tooltip.active {
+            display: block;
+            animation: tourFadeIn 0.3s ease;
+        }
+
+        @keyframes tourFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tour-step-indicator {
+            color: #22d3ee;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .tour-title {
+            color: #f1f5f9;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .tour-description {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .tour-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tour-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .tour-btn-next {
+            background: #22d3ee;
+            color: #0f172a;
+            border: none;
+        }
+
+        .tour-btn-next:hover {
+            background: #67e8f9;
+            transform: translateY(-1px);
+        }
+
+        .tour-btn-prev {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid #475569;
+        }
+
+        .tour-btn-prev:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f1f5f9;
+        }
+
+        .tour-btn-skip {
+            background: transparent;
+            color: #64748b;
+            border: none;
+            font-size: 0.75rem;
+        }
+
+        .tour-btn-skip:hover {
+            color: #ef4444;
+        }
+
+        .tour-arrow {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #1e293b;
+            border: 2px solid #22d3ee;
+            transform: rotate(45deg);
+        }
+
+        .tour-arrow.top {
+            top: -8px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .tour-arrow.bottom {
+            bottom: -8px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .tour-arrow.left {
+            left: -8px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .tour-arrow.right {
+            right: -8px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        /* زر إعادة الجولة */
+        .restart-tour-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(34, 211, 238, 0.2);
+            border: 1px solid rgba(34, 211, 238, 0.4);
+            color: #22d3ee;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .restart-tour-btn:hover {
+            background: rgba(34, 211, 238, 0.3);
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+        }
+
+        .restart-tour-btn i {
+            width: 16px;
+            height: 16px;
+        }
     </style>
 </head>
 
 <body>
     <!-- ═══════════════════════════════════════════════════════════════
+         الجولة التفاعلية - Interactive Tour
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="tour-overlay" id="tourOverlay"></div>
+    <div class="tour-spotlight" id="tourSpotlight"></div>
+    <div class="tour-tooltip" id="tourTooltip">
+        <div class="tour-arrow" id="tourArrow"></div>
+        <div class="tour-step-indicator" id="tourStepIndicator"></div>
+        <div class="tour-title" id="tourTitle"></div>
+        <div class="tour-description" id="tourDescription"></div>
+        <div class="tour-navigation">
+            <button class="tour-btn tour-btn-skip" onclick="endTour()">تخطي الجولة</button>
+            <div>
+                <button class="tour-btn tour-btn-prev" id="tourPrevBtn" onclick="prevTourStep()">◄ السابق</button>
+                <button class="tour-btn tour-btn-next" id="tourNextBtn" onclick="nextTourStep()">التالي ►</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
          صفحة رفع الملفات
          ═══════════════════════════════════════════════════════════════ -->
     <div class="upload-page" id="uploadPage">
-        <h1 class="upload-title">فراغات المتدربين والمدربين</h1>
-        <p class="upload-subtitle">قم برفع ملفات البيانات للبدء في التحليل</p>
+        <h1 class="upload-title">تطبيق جداول الشعب التدريبية</h1>
+
+        <!-- بطاقات المميزات -->
+        <div class="features-container">
+            <div class="feature-card">
+                <i data-lucide="scale" class="feature-icon"></i>
+                <span class="feature-text">موازنة أعداد الشعب</span>
+            </div>
+            <div class="feature-card">
+                <i data-lucide="calendar-clock" class="feature-icon"></i>
+                <span class="feature-text">تغيير موعد شعبة</span>
+            </div>
+            <div class="feature-card">
+                <i data-lucide="search" class="feature-icon"></i>
+                <span class="feature-text">بحث مواعيد جديدة</span>
+            </div>
+        </div>
+
+        <p class="upload-privacy">🔒 جميع البيانات تُعالج وتُخزن على جهازك ولا يتم رفع أو تخزين أي بيانات على السحابة
+        </p>
 
         <div class="upload-container">
             <!-- ملف SS01 -->
             <div class="upload-zone" id="ss01Zone" data-file="ss01">
-                <div class="upload-zone-icon">📅</div>
+                <div class="upload-zone-icon"><i data-lucide="calendar"></i></div>
                 <div class="upload-zone-title">ملف SS01</div>
-                <div class="upload-zone-desc">جدول الوحدة التدريبية (طولي)</div>
+                <div class="upload-zone-desc">جداول الوحدة التدريبية طولي
+                </div>
                 <div class="upload-zone-hint">اسحب وأفلت الملف هنا أو انقر للاختيار</div>
-                <div class="upload-zone-success">✓ تم الرفع بنجاح</div>
+                <div class="upload-zone-success"><i data-lucide="check-circle-2"></i> تم الرفع بنجاح</div>
+
+                <!-- زر الحذف -->
+                <button class="delete-file-btn" onclick="event.stopPropagation(); deleteUploadedFile('ss01')"
+                    title="حذف الملف">
+                    <i data-lucide="trash-2"></i>
+                </button>
+
+                <!-- حاوية نتائج التحقق من SS01 -->
+                <div id="ss01ValidationInfo"
+                    style="display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.85em; text-align: right;">
+                </div>
+
                 <div class="upload-progress">
                     <div class="upload-progress-bar"></div>
                 </div>
@@ -2288,18 +3423,36 @@
 
             <!-- ملف SF01 -->
             <div class="upload-zone" id="sf01Zone" data-file="sf01">
-                <div class="upload-zone-icon">📋</div>
+                <div class="upload-zone-icon"><i data-lucide="file-text"></i></div>
                 <div class="upload-zone-title">ملف SF01</div>
-                <div class="upload-zone-desc">تسجيل المقررات</div>
-                <div class="upload-zone-hint">اسحب وأفلت الملف هنا أو انقر للاختيار</div>
-                <div class="upload-zone-success">✓ تم الرفع بنجاح</div>
+                <div class="upload-zone-desc">قائمة بالمتدربين المسجلين في شعبة تدريبية</div>
+                <div class="upload-zone-hint">
+                    اسحب وأفلت الملف هنا أو انقر للاختيار
+                    <div
+                        style="margin-top: 8px; font-size: 0.85em; color: #f59e0b; background: rgba(245, 158, 11, 0.1); padding: 4px 8px; border-radius: 4px;">
+                        ⚠️ تنبيه: عند طلب التقرير، يجب اختيار <strong>(الكل)</strong> في جميع الخيارات
+                    </div>
+                </div>
+                <div class="upload-zone-success"><i data-lucide="check-circle-2"></i> تم الرفع بنجاح</div>
+
+                <!-- زر الحذف -->
+                <button class="delete-file-btn" onclick="event.stopPropagation(); deleteUploadedFile('sf01')"
+                    title="حذف الملف">
+                    <i data-lucide="trash-2"></i>
+                </button>
+
+                <!-- حاوية نتائج التحقق -->
+                <div id="sf01ValidationInfo"
+                    style="display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.85em; text-align: right;">
+                </div>
+
                 <div class="upload-progress">
                     <div class="upload-progress-bar"></div>
                 </div>
             </div>
         </div>
 
-        <button class="upload-btn" id="startBtn">ابدأ التحليل</button>
+        <button class="upload-btn" id="startBtn">ابدأ</button>
 
         <input type="file" id="fileInput" accept=".csv" hidden>
     </div>
@@ -2308,28 +3461,53 @@
          الصفحة الرئيسية
          ═══════════════════════════════════════════════════════════════ -->
     <div class="main-page" id="mainPage">
+
         <!-- الشريط العلوي -->
         <div class="top-bar">
-            <!-- الصف الأول: أدوات التحكم والمفتاح -->
-            <div class="control-row">
-                <!-- زر العودة للرئيسية -->
-                <button class="btn-home" onclick="goToUploadPage()" title="العودة للرئيسية">
-                    <i data-lucide="home"></i>
-                </button>
+            <!-- الصف الأول: مقسم إلى نصفين -->
+            <div class="split-rows-container control-split-row">
+                <!-- النصف الأيمن: أدوات التحكم -->
+                <div class="section-row controls-row">
+                    <!-- زر العودة للرئيسية -->
+                    <button class="btn-home" onclick="goToUploadPage()" title="العودة للرئيسية">
+                        <i data-lucide="home" style="width: 18px; height: 18px;"></i>
+                    </button>
 
-                <!-- مجموعة التبديل (يمين) -->
-                <div class="toggles-group">
-                    <div class="toggle-container">
-                        <div class="toggle" id="freeSlotsToggle" onclick="toggleFreeSlots()"></div>
-                        <span class="toggle-label">تحديد الفراغات</span>
+                    <!-- زر دليل الاستخدام -->
+                    <button class="btn-help" onclick="startTour()" title="دليل الاستخدام">
+                        <i data-lucide="help-circle" style="width: 18px; height: 18px;"></i>
+                    </button>
+
+                    <!-- مجموعة التبديل (متوسطة) -->
+                    <div class="toggles-group">
+                        <div class="toggle-container">
+                            <div class="toggle" id="freeSlotsToggle" onclick="toggleFreeSlots()"></div>
+                            <span class="toggle-label">تحديد الفراغات</span>
+                        </div>
+                        <div class="toggle-container">
+                            <div class="toggle" id="mergeIdenticalToggle" onclick="toggleMergeIdentical()"></div>
+                            <span class="toggle-label">دمج المتطابقين</span>
+                        </div>
+                        <div class="toggle-container">
+                            <div class="toggle" id="freeOnlySwitch" onclick="toggleFreeOnly()"></div>
+                            <span class="toggle-label">المتاحين فقط</span>
+                        </div>
                     </div>
-                    <div class="toggle-container">
-                        <div class="toggle" id="mergeIdenticalToggle" onclick="toggleMergeIdentical()"></div>
-                        <span class="toggle-label">دمج المتطابقين</span>
-                    </div>
-                    <div class="toggle-container">
-                        <div class="toggle" id="freeOnlySwitch" onclick="toggleFreeOnly()"></div>
-                        <span class="toggle-label">المتاحين فقط</span>
+                </div>
+
+                <!-- النصف الأيسر: فراغات شعبة جديدة -->
+                <div class="section-row freetime-row">
+                    <div class="section-input-group freetime-input-group">
+                        <span class="filter-section-label freetime-label">
+                            <i data-lucide="clock"
+                                style="width: 16px; height: 16px; vertical-align: middle; margin-left: 4px;"></i>
+                            فراغات شعبة جديدة
+                        </span>
+                        <button class="freetime-search-btn" onclick="showAvailabilityPage()"
+                            title="تحليل الفترات المتاحة لفتح شعبة جديدة">
+                            <i data-lucide="search"></i>
+                            <span>البحث عن موعد</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -2339,7 +3517,9 @@
                 <!-- النصف الأيمن: الشعب الظاهرة -->
                 <div class="section-row visible-row">
                     <div class="section-input-group">
-                        <span class="filter-section-label">📋 الشعب الظاهرة</span>
+                        <span class="filter-section-label"><i data-lucide="list"
+                                style="width: 16px; height: 16px; vertical-align: middle; margin-left: 4px;"></i> الشعب
+                            الظاهرة</span>
                         <div class="section-search-input visible-section-input">
                             <input type="text" id="visibleSectionSearch" placeholder="ابحث عن شعبة..."
                                 oninput="searchVisibleSections(this.value)" onfocus="showVisibleDropdown()"
@@ -2353,9 +3533,11 @@
                 <!-- النصف الأيسر: الشعب المستهدفة -->
                 <div class="section-row target-row">
                     <div class="section-input-group">
-                        <span class="filter-section-label">🎯 الشعب المستهدفة</span>
+                        <span class="filter-section-label"><i data-lucide="target"
+                                style="width: 16px; height: 16px; vertical-align: middle; margin-left: 4px;"></i> الشعب
+                            المستهدفة</span>
                         <div class="section-search-input target-section-input">
-                            <input type="text" id="targetSectionSearch" placeholder="ابحث..."
+                            <input type="text" id="targetSectionSearch" placeholder="ابحث عن شعبة..."
                                 oninput="searchTargetSections(this.value)" onfocus="showTargetDropdown()"
                                 autocomplete="off">
                             <div class="section-search-dropdown target-section-dropdown" id="targetSectionDropdown">
@@ -2372,7 +3554,7 @@
             <!-- جدول المدربين -->
             <div class="table-section">
                 <div class="table-header">
-                    <span class="table-icon">👨‍🏫</span>
+                    <span class="table-icon"><i data-lucide="presentation"></i></span>
                     <span class="table-title">المدربين</span>
                     <span class="table-count">2 مدرب</span>
                 </div>
@@ -2384,7 +3566,7 @@
                                 <th rowspan="2" class="col-id">#</th>
                                 <th rowspan="2" class="col-name">المدرب</th>
                                 <th rowspan="2" class="col-stat text-contact">اتصال</th>
-                                <th rowspan="2" class="col-stat text-quota">نصاب</th>
+                                <th rowspan="2" class="col-stat text-quota">النصابth>
                                 <th class="day-header day-sun" colspan="4">الأحد</th>
                                 <th class="day-header" colspan="4">الاثنين</th>
                                 <th class="day-header" colspan="4">الثلاثاء</th>
@@ -2516,7 +3698,7 @@
             <!-- جدول المتدربين -->
             <div class="table-section">
                 <div class="table-header">
-                    <span class="table-icon">👨‍🎓</span>
+                    <span class="table-icon"><i data-lucide="graduation-cap"></i></span>
                     <span class="table-title">المتدربين</span>
                     <span class="table-count">15 متدرب</span>
                 </div>
@@ -2528,7 +3710,7 @@
                                 <th rowspan="2" class="col-id">#</th>
                                 <th rowspan="2" class="col-name">المتدرب</th>
                                 <th rowspan="2" class="col-stat text-contact">الرقم</th>
-                                <th rowspan="2" class="col-stat text-credits">س معتمدة</th>
+                                <th rowspan="2" class="col-stat text-credits">س. م.</th>
                                 <th class="day-header day-sun" colspan="4">الأحد</th>
                                 <th class="day-header day-mon" colspan="4">الاثنين</th>
                                 <th class="day-header day-tue" colspan="4">الثلاثاء</th>
@@ -2571,28 +3753,28 @@
                                         444117138
                                         <div class="tooltip">
                                             <div class="tooltip-row">
-                                                <span class="tooltip-icon">👤</span>
+                                                <span class="tooltip-icon"><i data-lucide="user"></i></span>
                                                 <div>
                                                     <div class="tooltip-label">الاسم</div>
                                                     <div class="tooltip-value">فيصل يوسف العبدالجبار</div>
                                                 </div>
                                             </div>
                                             <div class="tooltip-row">
-                                                <span class="tooltip-icon">🎓</span>
+                                                <span class="tooltip-icon"><i data-lucide="graduation-cap"></i></span>
                                                 <div>
                                                     <div class="tooltip-label">التخصص</div>
                                                     <div class="tooltip-value">تقنية الصيانة الميكانيكية</div>
                                                 </div>
                                             </div>
                                             <div class="tooltip-row">
-                                                <span class="tooltip-icon">📱</span>
+                                                <span class="tooltip-icon"><i data-lucide="smartphone"></i></span>
                                                 <div>
                                                     <div class="tooltip-label">الجوال</div>
                                                     <div class="tooltip-value">05xxxxxxxx</div>
                                                 </div>
                                             </div>
                                             <div class="tooltip-row">
-                                                <span class="tooltip-icon">📚</span>
+                                                <span class="tooltip-icon"><i data-lucide="book-open"></i></span>
                                                 <div>
                                                     <div class="tooltip-label">المقررات</div>
                                                     <div class="tooltip-courses">
@@ -2603,7 +3785,7 @@
                                                 </div>
                                             </div>
                                             <div class="tooltip-row">
-                                                <span class="tooltip-icon">⏱️</span>
+                                                <span class="tooltip-icon"><i data-lucide="clock"></i></span>
                                                 <div>
                                                     <div class="tooltip-label">الساعات المعتمدة</div>
                                                     <div class="tooltip-value">16 ساعة</div>
@@ -2830,6 +4012,46 @@
         </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════════════════════════
+         صفحة تحليل الفراغات
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="availability-page" id="availabilityPage">
+        <div class="availability-container">
+            <!-- الشريط العلوي -->
+            <div class="availability-header">
+                <button class="close-btn" onclick="hideAvailabilityPage()" title="إغلاق">
+                    <i data-lucide="x"></i>
+                </button>
+                <h2 class="availability-title">الفترات المتاحة لفتح شعبة جديدة</h2>
+
+                <!-- أزرار الإجراءات -->
+                <div class="availability-actions">
+                    <button class="reset-periods-btn" onclick="resetSelectedPeriods()" title="إعادة تعيين الاختيارات">
+                        <i data-lucide="refresh-cw"></i>
+                        <span>إعادة تعيين</span>
+                    </button>
+                    <button class="apply-periods-btn" onclick="applySelectedPeriodsToTables()" disabled
+                        title="اعتماد الفترات المختارة">
+                        <i data-lucide="check-circle"></i>
+                        <span>اعتماد إظهار الفترات</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- الجدول -->
+            <div class="availability-table-wrapper">
+                <table class="availability-table" id="availabilityTable">
+                    <thead id="availabilityTableHead">
+                        <!-- يُملأ ديناميكياً -->
+                    </thead>
+                    <tbody id="availabilityTableBody">
+                        <!-- يُملأ ديناميكياً -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <!-- شاشة التحميل -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner"></div>
@@ -2873,7 +4095,7 @@
 
             // إشعار المستخدم
             if (showFreeOnly) {
-                showToast('🟢 عرض المتدربين المتاحين فقط', 'success');
+                showToast('عرض المتدربين المتاحين فقط', 'success');
             } else {
                 showToast('عرض جميع المتدربين', 'info');
             }
@@ -2904,7 +4126,7 @@
             renderTraineesTable();
 
             if (mergeIdentical) {
-                showToast('🔗 تم دمج المتدربين المتطابقين', 'success');
+                showToast('تم دمج المتدربين المتطابقين', 'success');
             } else {
                 showToast('عرض كل متدرب في صف منفصل', 'info');
             }
@@ -2953,10 +4175,452 @@
         }
 
         // ═══════════════════════════════════════════════════════════════
+        //  تحليل فراغات شعبة جديدة
+        // ═══════════════════════════════════════════════════════════════
+        // ملاحظة: يستخدم المتغير DAYS المعرف في قسم معالجة البيانات
+        const PERIOD_DURATION = 50; // مدة الفترة بالدقائق
+        const PERIOD_GAP = 1; // الفاصل بين الفترتين المتتاليتين
+
+        // عرض صفحة التحليل
+        function showAvailabilityPage() {
+            if (visibleSections.length === 0) {
+                showToast('يرجى اختيار شعبة واحدة على الأقل', 'error');
+                return;
+            }
+
+            // لا نعيد تعيين الاختيارات - تبقى محفوظة حتى يضغط المستخدم على إعادة تعيين
+
+            const page = document.getElementById('availabilityPage');
+            if (page) {
+                page.classList.add('show');
+                generateAvailabilityTable();
+                updateApplyButtonState();
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        }
+
+        // إغلاق صفحة التحليل
+        function hideAvailabilityPage() {
+            const page = document.getElementById('availabilityPage');
+            if (page) {
+                page.classList.remove('show');
+            }
+        }
+
+        // استخراج جميع أوقات البداية الفريدة من البيانات
+        function extractUniqueStartTimes() {
+            const startTimes = new Set();
+
+            Object.values(sections).forEach(section => {
+                // كل قسم لديه مصفوفة sessions
+                if (section.sessions && section.sessions.length > 0) {
+                    section.sessions.forEach(session => {
+                        if (session.time && session.time !== ' - ') {
+                            const [endStr, startStr] = session.time.split(' - ');
+                            if (startStr && startStr.trim().length === 4) {
+                                const mins = parseInt(startStr.substring(0, 2)) * 60 + parseInt(startStr.substring(2, 4));
+                                if (!isNaN(mins)) startTimes.add(mins);
+                            }
+                        }
+                    });
+                }
+            });
+
+            console.log('⏰ أوقات البداية المستخرجة:', Array.from(startTimes).sort((a, b) => a - b));
+            return Array.from(startTimes).sort((a, b) => a - b);
+        }
+
+        // حساب تكرار كل وقت بداية
+        function countStartTimeFrequency() {
+            const frequency = {};
+
+            Object.values(sections).forEach(section => {
+                if (section.sessions && section.sessions.length > 0) {
+                    section.sessions.forEach(session => {
+                        if (session.time && session.time !== ' - ') {
+                            const [endStr, startStr] = session.time.split(' - ');
+                            if (startStr && startStr.trim().length === 4) {
+                                const mins = parseInt(startStr.substring(0, 2)) * 60 + parseInt(startStr.substring(2, 4));
+                                if (!isNaN(mins)) frequency[mins] = (frequency[mins] || 0) + 1;
+                            }
+                        }
+                    });
+                }
+            });
+
+            return frequency;
+        }
+
+        // إنشاء 10 فترات بناءً على الأوقات الفعلية
+        function generateTimePeriods() {
+            const periods = [];
+            const startTimes = extractUniqueStartTimes();
+            const frequency = countStartTimeFrequency();
+
+            if (startTimes.length === 0) {
+                console.log('لا توجد أوقات متاحة');
+                return periods;
+            }
+
+            let currentEnd = 0;
+            let periodCount = 0;
+
+            while (periodCount < 10 && startTimes.length > 0) {
+                let periodStart;
+
+                if (periodCount % 2 === 0) {
+                    // الفترات الفردية (1, 3, 5, 7, 9): نبحث عن أول وقت بداية ≥ currentEnd
+                    const availableStarts = startTimes.filter(t => t >= currentEnd);
+                    if (availableStarts.length === 0) {
+                        // لا توجد أوقات متاحة، نستخدم currentEnd + فاصل
+                        periodStart = currentEnd + 5;
+                    } else {
+                        // نختار الأكثر تكراراً من بين الأوقات المتاحة
+                        periodStart = availableStarts.reduce((best, curr) =>
+                            (frequency[curr] || 0) > (frequency[best] || 0) ? curr : best
+                            , availableStarts[0]);
+                    }
+                } else {
+                    // الفترات الزوجية (2, 4, 6, 8, 10): تبدأ بعد السابقة بدقيقة
+                    periodStart = currentEnd + PERIOD_GAP;
+                }
+
+                const periodEnd = periodStart + PERIOD_DURATION;
+
+                periods.push({
+                    index: periodCount + 1,
+                    start: periodStart,
+                    end: periodEnd,
+                    startStr: formatMinutesToTime(periodStart),
+                    endStr: formatMinutesToTime(periodEnd),
+                    groupClass: `period-group-${Math.ceil((periodCount + 1) / 2)}`
+                });
+
+                currentEnd = periodEnd;
+                periodCount++;
+            }
+
+            return periods;
+        }
+
+        // تحويل الدقائق لتنسيق وقت (HH:MM)
+        function formatMinutesToTime(mins) {
+            const hours = Math.floor(mins / 60);
+            const minutes = mins % 60;
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        }
+
+        // التحقق من تعارض وقت معين مع فترة محددة
+        function isTimeConflict(sessionTime, periodStart, periodEnd) {
+            if (!sessionTime || sessionTime === ' - ') return false;
+
+            const [endStr, startStr] = sessionTime.split(' - ');
+            if (!startStr || !endStr) return false;
+
+            const sessionStart = parseInt(startStr.substring(0, 2)) * 60 + parseInt(startStr.substring(2, 4));
+            const sessionEnd = parseInt(endStr.substring(0, 2)) * 60 + parseInt(endStr.substring(2, 4));
+
+            // تعارض إذا كان هناك تداخل
+            return !(sessionEnd <= periodStart || sessionStart >= periodEnd);
+        }
+
+        // حساب المتدربين المتاحين لفترة معينة في يوم معين
+        // pool: قائمة IDs المتدربين للتصفية منها (null = الكل)
+        function calculateTraineeAvailability(period, day, pool = null) {
+            let available = 0;
+            let total = 0;
+            let availableIds = []; // قائمة IDs المتاحين
+
+            // المتدربين من الشعب الظاهرة فقط
+            let visibleTrainees = Object.values(trainees).filter(trainee => {
+                if (!trainee.registrations) return false;
+                return trainee.registrations.some(reg => visibleSections.includes(reg.refNum));
+            });
+
+            // إذا تم تمرير pool، التصفية منها فقط
+            if (pool !== null) {
+                visibleTrainees = visibleTrainees.filter(t => pool.includes(t.id));
+            }
+
+            visibleTrainees.forEach(trainee => {
+                total++;
+                let hasConflict = false;
+
+                // فحص كل تسجيلات المتدرب
+                if (trainee.registrations) {
+                    for (const reg of trainee.registrations) {
+                        const section = sections[reg.refNum];
+                        if (section && section.sessions) {
+                            // فحص كل جلسات الشعبة
+                            for (const session of section.sessions) {
+                                if (session.day === day) {
+                                    if (isTimeConflict(session.time, period.start, period.end)) {
+                                        hasConflict = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        if (hasConflict) break;
+                    }
+                }
+
+                if (!hasConflict) {
+                    available++;
+                    availableIds.push(trainee.id);
+                }
+            });
+
+            return { available, total, availableIds };
+        }
+
+        // حساب المدربين المتاحين لفترة معينة في يوم معين
+        // pool: قائمة IDs المدربين للتصفية منها (null = الكل)
+        function calculateTrainerAvailability(period, day, pool = null) {
+            let available = 0;
+            let total = 0;
+            let availableIds = []; // قائمة IDs المتاحين
+
+            // المدربين من الشعب الظاهرة
+            let visibleTrainerIds = new Set();
+            Object.values(sections).forEach(section => {
+                if (visibleSections.includes(section.refNumber) && section.trainerId) {
+                    visibleTrainerIds.add(section.trainerId);
+                }
+            });
+
+            // إذا تم تمرير pool، التصفية منها فقط
+            if (pool !== null) {
+                visibleTrainerIds = new Set([...visibleTrainerIds].filter(id => pool.includes(id)));
+            }
+
+            visibleTrainerIds.forEach(trainerId => {
+                total++;
+                let hasConflict = false;
+
+                // فحص كل الشعب التي يدرسها المدرب (من كائن sections)
+                Object.values(sections).forEach(section => {
+                    if (section.trainerId === trainerId && section.sessions) {
+                        for (const session of section.sessions) {
+                            if (session.day === day) {
+                                if (isTimeConflict(session.time, period.start, period.end)) {
+                                    hasConflict = true;
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                });
+
+                if (!hasConflict) {
+                    available++;
+                    availableIds.push(trainerId);
+                }
+            });
+
+            return { available, total, availableIds };
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        //  اختيار الفترات الديناميكي - Dynamic Period Selection
+        // ═══════════════════════════════════════════════════════════════
+        let selectedAvailabilityPeriods = []; // [{period: {...}, day: 'الأحد'}, ...]
+        let filteredTraineePool = null; // null = الكل، [] = قائمة IDs
+        let filteredTrainerPool = null;
+        let cachedPeriods = []; // الفترات المخزنة مؤقتاً
+
+        // تبديل اختيار فترة معينة
+        function toggleAvailabilityPeriod(periodIndex, day) {
+            const period = cachedPeriods.find(p => p.index === periodIndex);
+            if (!period) return;
+
+            // البحث عن الفترة في المختارة
+            const existingIndex = selectedAvailabilityPeriods.findIndex(
+                sp => sp.period.index === periodIndex && sp.day === day
+            );
+
+            if (existingIndex > -1) {
+                // إزالة الاختيار
+                selectedAvailabilityPeriods.splice(existingIndex, 1);
+            } else {
+                // التحقق من أن الخلية ليست حمراء
+                const traineeData = calculateTraineeAvailability(period, day, filteredTraineePool);
+                if (traineeData.available === 0) {
+                    showToast('لا يمكن اختيار فترة بدون متدربين متاحين', 'error');
+                    return;
+                }
+                // إضافة الاختيار
+                selectedAvailabilityPeriods.push({ period, day });
+            }
+
+            // إعادة حساب الـ pools
+            recalculateFilteredPools();
+
+            // إعادة عرض الجدول
+            generateAvailabilityTable();
+
+            // تحديث حالة زر الاعتماد
+            updateApplyButtonState();
+        }
+
+        // إعادة حساب قوائم المتاحين بناءً على الفترات المختارة
+        function recalculateFilteredPools() {
+            if (selectedAvailabilityPeriods.length === 0) {
+                filteredTraineePool = null;
+                filteredTrainerPool = null;
+                return;
+            }
+
+            // البدء من الكل
+            let currentTraineePool = null;
+            let currentTrainerPool = null;
+
+            // لكل فترة مختارة، تصفية المتاحين
+            selectedAvailabilityPeriods.forEach((sp, index) => {
+                const traineeData = calculateTraineeAvailability(sp.period, sp.day, currentTraineePool);
+                const trainerData = calculateTrainerAvailability(sp.period, sp.day, currentTrainerPool);
+
+                currentTraineePool = traineeData.availableIds;
+                currentTrainerPool = trainerData.availableIds;
+            });
+
+            filteredTraineePool = currentTraineePool;
+            filteredTrainerPool = currentTrainerPool;
+        }
+
+        // إعادة تعيين الاختيارات
+        function resetSelectedPeriods() {
+            selectedAvailabilityPeriods = [];
+            filteredTraineePool = null;
+            filteredTrainerPool = null;
+            generateAvailabilityTable();
+            updateApplyButtonState();
+            showToast('تم إعادة تعيين الاختيارات', 'info');
+        }
+
+        // تحديث حالة زر الاعتماد
+        function updateApplyButtonState() {
+            const btn = document.querySelector('.apply-periods-btn');
+            if (btn) {
+                if (selectedAvailabilityPeriods.length > 0) {
+                    btn.classList.add('active');
+                    btn.disabled = false;
+                } else {
+                    btn.classList.remove('active');
+                    btn.disabled = true;
+                }
+            }
+        }
+
+        // اعتماد الفترات المختارة للعرض في الجداول الرئيسية
+        function applySelectedPeriodsToTables() {
+            if (selectedAvailabilityPeriods.length === 0) {
+                showToast('لم يتم اختيار أي فترات', 'error');
+                return;
+            }
+
+            // تخزين الفترات المعتمدة للعرض
+            appliedFreetimePeriods = [...selectedAvailabilityPeriods];
+
+            showToast(`تم اعتماد ${selectedAvailabilityPeriods.length} فترات`, 'success');
+
+            // إغلاق صفحة التحليل
+            hideAvailabilityPage();
+
+            // إعادة عرض الجداول لإظهار الفترات
+            renderAllData();
+        }
+
+        // الفترات المعتمدة للعرض على الجداول الرئيسية
+        let appliedFreetimePeriods = []; // [{period: {...}, day: 'الأحد'}, ...]
+
+
+        // إنشاء جدول التحليل
+        function generateAvailabilityTable() {
+            const thead = document.getElementById('availabilityTableHead');
+            const tbody = document.getElementById('availabilityTableBody');
+            if (!tbody || !thead) return;
+
+            const periods = generateTimePeriods();
+            cachedPeriods = periods; // تخزين مؤقت للاستخدام في toggleAvailabilityPeriod
+
+            // إنشاء رأس الجدول (الفترات كأعمدة)
+            let headerHtml = '<tr><th class="day-header">اليوم</th><th class="labels-header">البيان</th>';
+            periods.forEach(period => {
+                const groupNum = Math.ceil(period.index / 2);
+                headerHtml += `<th class="period-header period-group-${groupNum}">
+                    الفترة ${period.index}
+                    <span class="period-time">${period.startStr} - ${period.endStr}</span>
+                </th>`;
+            });
+            headerHtml += '</tr>';
+            thead.innerHTML = headerHtml;
+
+            // إنشاء صفوف الجدول (الأيام كصفوف)
+            let bodyHtml = '';
+            DAYS.forEach((day, dayIndex) => {
+                // صف اليوم
+                bodyHtml += `<tr class="day-row ${dayIndex > 0 ? 'day-separator' : ''}">`;
+
+                // خلية اليوم (تمتد على 3 صفوف فرعية)
+                bodyHtml += `<td class="day-cell">${day}</td>`;
+
+                // خلية التسميات (3 صفوف) - بنفس تنسيق خلايا الفترات
+                bodyHtml += `<td class="labels-cell">
+                    <div class="labels-cell-content">
+                        <div class="label-row label-trainers">المدربين المتاحين</div>
+                        <div class="label-row label-trainees">المتدربين المتاحين</div>
+                        <div class="label-row label-percentage">نسبة المتدربين</div>
+                    </div>
+                </td>`;
+
+                // خلايا الفترات
+                periods.forEach(period => {
+                    // استخدام الـ pool للحساب الديناميكي
+                    const traineeData = calculateTraineeAvailability(period, day, filteredTraineePool);
+                    const trainerData = calculateTrainerAvailability(period, day, filteredTrainerPool);
+                    const percentage = traineeData.total > 0
+                        ? Math.round((traineeData.available / traineeData.total) * 100)
+                        : 0;
+
+                    // تحديد إذا كانت الخلية بدون متدربين متاحين
+                    const noAvailabilityClass = traineeData.available === 0 ? 'no-availability' : '';
+
+                    // تحديد إذا كان عدد المدربين المتاحين = 0
+                    const noTrainersClass = trainerData.available === 0 ? 'no-trainers' : '';
+
+                    // تحديد إذا كانت الخلية مختارة
+                    const isSelected = selectedAvailabilityPeriods.some(
+                        sp => sp.period.index === period.index && sp.day === day
+                    );
+                    const selectedClass = isSelected ? 'selected' : '';
+
+                    // كلاس قابل للنقر (إذا كان هناك متدربين متاحين أو الخلية مختارة)
+                    const clickableClass = (traineeData.available > 0 || isSelected) ? 'clickable' : '';
+
+                    const groupNum = Math.ceil(period.index / 2);
+
+                    bodyHtml += `<td class="period-group-${groupNum}">
+                        <div class="availability-cell ${noAvailabilityClass} ${selectedClass} ${clickableClass}" 
+                             onclick="toggleAvailabilityPeriod(${period.index}, '${day}')">
+                            <div class="cell-trainers ${noTrainersClass}">${trainerData.available}/${trainerData.total}</div>
+                            <div class="cell-trainees">${traineeData.available}/${traineeData.total}</div>
+                            <div class="cell-percentage">${percentage}%</div>
+                        </div>
+                    </td>`;
+                });
+
+                bodyHtml += '</tr>';
+            });
+
+            tbody.innerHTML = bodyHtml;
+        }
+
+        // ═══════════════════════════════════════════════════════════════
         //  تحديد الفراغات المشتركة
         // ═══════════════════════════════════════════════════════════════
         let showFreeSlots = false;
-        const END_OF_DAY = 15 * 60; // 15:00 = 900 دقيقة
+        const END_OF_DAY = 16 * 60; // 16:00 = 960 دقيقة (4 مساءً)
         const MIN_FREE_SLOT = 50; // الحد الأدنى للفراغ بالدقائق
 
         // تبديل وضع تحديد الفراغات
@@ -2968,7 +4632,7 @@
             renderAllData();
 
             if (showFreeSlots) {
-                showToast('🟢 تحديد الفراغات المشتركة', 'success');
+                showToast('تحديد الفراغات المشتركة', 'success');
             } else {
                 showToast('إخفاء الفراغات', 'info');
             }
@@ -3041,11 +4705,7 @@
         // إيجاد الفراغات من قائمة الفترات المشغولة
         function findFreeSlots(busySlots) {
             if (busySlots.length === 0) {
-                // إذا لا توجد محاضرات، كل اليوم فارغ
-                const dayStart = timeRangeStart || (7 * 60 + 30); // 7:30
-                if (END_OF_DAY - dayStart >= MIN_FREE_SLOT) {
-                    return [{ start: dayStart, end: END_OF_DAY }];
-                }
+                // إذا لا توجد محاضرات، لا توجد فراغات لحسابها
                 return [];
             }
 
@@ -3069,17 +4729,11 @@
 
             // البحث عن الفراغات
             const freeSlots = [];
-            const dayStart = timeRangeStart || (7 * 60 + 30); // 7:30
 
-            // فراغ قبل أول محاضرة
-            if (merged[0].start > dayStart) {
-                const gap = merged[0].start - dayStart;
-                if (gap >= MIN_FREE_SLOT) {
-                    freeSlots.push({ start: dayStart, end: merged[0].start });
-                }
-            }
+            // بداية اليوم = وقت أول محاضرة (ديناميكي)
+            // لا نحسب فراغ قبل أول محاضرة - البداية من أول محاضرة
 
-            // فراغات بين المحاضرات
+            // فراغات بين المحاضرات فقط
             for (let i = 0; i < merged.length - 1; i++) {
                 const gap = merged[i + 1].start - merged[i].end;
                 if (gap >= MIN_FREE_SLOT) {
@@ -3087,7 +4741,7 @@
                 }
             }
 
-            // فراغ بعد آخر محاضرة حتى نهاية اليوم (15:00)
+            // فراغ بعد آخر محاضرة حتى نهاية اليوم (16:00)
             const lastEnd = merged[merged.length - 1].end;
             if (END_OF_DAY > lastEnd) {
                 const gap = END_OF_DAY - lastEnd;
@@ -3192,6 +4846,142 @@
             }
         }
 
+        // حذف الملف من IndexedDB وإعادة تعيين الواجهة
+        async function deleteUploadedFile(fileType) {
+            try {
+                // حذف من IndexedDB
+                const database = await openDatabase();
+                const transaction = database.transaction([STORE_NAME], 'readwrite');
+                const store = transaction.objectStore(STORE_NAME);
+                store.delete(fileType);
+
+                // حذف من الذاكرة
+                uploadedFiles[fileType] = null;
+
+                // إعادة تعيين واجهة المستخدم
+                const zone = document.getElementById(fileType + 'Zone');
+                if (zone) {
+                    zone.classList.remove('uploaded');
+                    zone.querySelector('.upload-zone-title').textContent =
+                        fileType === 'ss01' ? 'ملف SS01' : 'ملف SF01';
+
+                    // إخفاء معلومات التحقق
+                    const validationInfo = document.getElementById(fileType + 'ValidationInfo');
+                    if (validationInfo) {
+                        validationInfo.style.display = 'none';
+                        validationInfo.innerHTML = '';
+                    }
+                }
+
+                // تحديث حالة زر ابدأ
+                checkFilesReady();
+
+                console.log(`🗑️ تم حذف ${fileType} من IndexedDB`);
+                showToast(`تم حذف ملف ${fileType.toUpperCase()}`, 'success');
+            } catch (e) {
+                console.error('خطأ في حذف الملف:', e);
+                showToast('حدث خطأ في حذف الملف', 'error');
+            }
+        }
+
+        // متغير حالة التحقق من ملف SF01
+        let isSF01Valid = false;
+
+        // التحقق من صحة ملف SF01
+        function validateSF01(csvText) {
+            const rows = parseCSV(csvText);
+            const departments = new Set();
+            const uniqueTrainees = new Set();
+
+            rows.forEach(row => {
+                if (row['القسم']) {
+                    departments.add(row['القسم'].trim());
+                }
+                // رقم المتدرب الفريد
+                const traineeId = row['رقم المتدرب'] || row['TRAINEE_ID'] || '';
+                if (traineeId.trim()) {
+                    uniqueTrainees.add(traineeId.trim());
+                }
+            });
+
+            const deptList = Array.from(departments);
+            const traineeCount = uniqueTrainees.size; // عدد المتدربين الفريدين
+            const hasGeneralStudies = deptList.includes('الدراسات العامة');
+            isSF01Valid = hasGeneralStudies;
+
+            const infoBox = document.getElementById('sf01ValidationInfo');
+            if (infoBox) {
+                infoBox.style.display = 'block';
+                const items = deptList.map(d => {
+                    const isGeneral = d === 'الدراسات العامة';
+                    const bgColor = isGeneral ? 'rgba(16, 185, 129, 0.2)' : 'rgba(99, 102, 241, 0.15)';
+                    const textColor = isGeneral ? '#10b981' : '#a5b4fc';
+                    const border = isGeneral ? '1px solid #10b981' : '1px solid rgba(99, 102, 241, 0.3)';
+                    return `<span style="display: inline-block; background: ${bgColor}; color: ${textColor}; border: ${border}; padding: 3px 10px; border-radius: 12px; margin: 2px; font-size: 0.8em; white-space: nowrap;">${d}</span>`;
+                }).join('');
+
+                const warning = !hasGeneralStudies ?
+                    `<div style="color: #ef4444; margin-top: 10px; font-weight: bold; text-align: center;">
+                        ⚠️ خطأ: قسم "الدراسات العامة" مفقود!
+                    </div>` : '';
+
+                infoBox.innerHTML = `
+                    <div style="font-weight: bold; margin-bottom: 8px; font-size: 0.9em;">👥 عدد المتدربين: ${traineeCount}</div>
+                    <div style="font-weight: bold; margin-bottom: 8px; font-size: 0.9em;">✅ الأقسام (${deptList.length}):</div>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4px;">
+                        ${items}
+                    </div>
+                    ${warning}
+                `;
+            }
+
+            if (!hasGeneralStudies) {
+                showToast('تنبيه: ملف SF01 لا يحتوي على "الدراسات العامة"', 'error');
+            }
+        }
+
+        // التحقق من ملف SS01 وعرض معلومات الأقسام
+        function validateSS01(content) {
+            const data = parseCSV(content);
+            const departments = new Set();
+            const uniqueSections = new Set();
+
+            // استخراج الأقسام والشعب الفريدة
+            data.forEach(row => {
+                const dept = row['القسم'] || row['DEPT'] || row['Department'] || '';
+                if (dept.trim()) {
+                    departments.add(dept.trim());
+                }
+                // الرقم المرجعي للشعبة
+                const refNum = row['الرقم المرجعي'] || row['REF_NUM'] || '';
+                if (refNum.trim()) {
+                    uniqueSections.add(refNum.trim());
+                }
+            });
+
+            const deptList = Array.from(departments).sort();
+            const sectionCount = uniqueSections.size; // عدد الشعب الفريدة
+
+            const infoBox = document.getElementById('ss01ValidationInfo');
+            if (infoBox) {
+                infoBox.style.display = 'block';
+                const items = deptList.map(d => {
+                    const bgColor = 'rgba(99, 102, 241, 0.15)';
+                    const textColor = '#a5b4fc';
+                    const border = '1px solid rgba(99, 102, 241, 0.3)';
+                    return `<span style="display: inline-block; background: ${bgColor}; color: ${textColor}; border: ${border}; padding: 3px 10px; border-radius: 12px; margin: 2px; font-size: 0.8em; white-space: nowrap;">${d}</span>`;
+                }).join('');
+
+                infoBox.innerHTML = `
+                    <div style="font-weight: bold; margin-bottom: 8px; font-size: 0.9em;">📊 عدد الشعب: ${sectionCount}</div>
+                    <div style="font-weight: bold; margin-bottom: 8px; font-size: 0.9em;">✅ الأقسام (${deptList.length}):</div>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4px;">
+                        ${items}
+                    </div>
+                `;
+            }
+        }
+
         // تحميل الملفات المحفوظة من IndexedDB
         async function loadCachedFiles() {
             try {
@@ -3211,6 +5001,8 @@
                             ss01Zone.querySelector('.upload-zone-title').textContent = 'SS01 ✓ (محفوظ)';
                         }
                         console.log('📂 تم تحميل SS01 من IndexedDB');
+                        // التحقق من الملف المحفوظ أيضاً
+                        validateSS01(ss01Request.result.content);
                         checkFilesReady();
                     }
                 };
@@ -3224,6 +5016,8 @@
                             sf01Zone.querySelector('.upload-zone-title').textContent = 'SF01 ✓ (محفوظ)';
                         }
                         console.log('📂 تم تحميل SF01 من IndexedDB');
+                        // التحقق من الملف المحفوظ أيضاً
+                        validateSF01(sf01Request.result.content);
                         checkFilesReady();
                     }
                 };
@@ -3261,6 +5055,16 @@
             reader.onload = function (e) {
                 const fileContent = e.target.result;
 
+                // التحقق الفوري لملف SF01
+                if (currentZone === 'sf01') {
+                    validateSF01(fileContent);
+                }
+
+                // التحقق الفوري لملف SS01
+                if (currentZone === 'ss01') {
+                    validateSS01(fileContent);
+                }
+
                 // حفظ في localStorage
                 saveFileToCache(currentZone, fileContent);
 
@@ -3295,6 +5099,7 @@
 
         // التحقق من جاهزية الملفات
         function checkFilesReady() {
+            // نتحقق من وجود الملفات فقط، صحة المحتوى يتم التحقق منها عند البدء
             if (uploadedFiles.ss01 && uploadedFiles.sf01) {
                 startBtn.classList.add('active');
             } else {
@@ -3306,11 +5111,20 @@
         async function startAnalysis() {
             // التحقق التفصيلي مع رسائل خطأ
             if (!uploadedFiles.ss01) {
-                showToast('⚠️ يجب رفع ملف SS01 (جدول الوحدة الأسبوعي)', 'error');
+                showToast('يجب رفع ملف SS01 (جدول الوحدة الأسبوعي)', 'error');
                 return;
             }
             if (!uploadedFiles.sf01) {
-                showToast('⚠️ يجب رفع ملف SF01 (قائمة تسجيل المتدربين)', 'error');
+                showToast('يجب رفع ملف SF01 (قائمة تسجيل المتدربين)', 'error');
+                return;
+            }
+
+            // التحقق من صحة ملف SF01 (وجود الدراسات العامة)
+            if (!isSF01Valid) {
+                showToast('❌ عذراً، لا يمكن البدء.', 'error');
+                setTimeout(() => {
+                    showToast('يجب أن يحتوي ملف SF01 على قسم "الدراسات العامة". راجع نتائج التحقق.', 'error');
+                }, 1500);
                 return;
             }
 
@@ -3326,6 +5140,17 @@
                     uploadPageEl.style.display = 'none';
                     mainPageEl.style.display = 'flex';
                     mainPageEl.scrollIntoView();
+
+                    // تشغيل الجولة التفاعلية عند أول استخدام
+                    alert('✅ وصلت لهذه النقطة - سيبدأ التور الآن!');
+                    const tourCompleted = localStorage.getItem('tourCompleted');
+                    console.log('🎯 Tour check:', tourCompleted ? 'مكتمل' : 'لم يتم');
+                    if (!tourCompleted) {
+                        setTimeout(() => {
+                            console.log('🚀 بدء الجولة التفاعلية...');
+                            startTour();
+                        }, 500);
+                    }
                 } else {
                     console.error('Elements missing:', { uploadPageEl, mainPageEl });
                     showToast('حدث خطأ في عرض الصفحة الرئيسية', 'error');
@@ -3354,17 +5179,25 @@
             toast.className = 'toast';
 
             const icons = {
-                success: '✅',
-                error: '❌',
-                info: 'ℹ️'
+                success: 'check-circle',
+                error: 'x-circle',
+                info: 'info'
             };
 
             toast.innerHTML = `
-                <span class="toast-icon">${icons[type]}</span>
+                <span class="toast-icon"><i data-lucide="${icons[type]}"></i></span>
                 <span class="toast-message">${message}</span>
             `;
 
             container.appendChild(toast);
+
+            // تهيئة أيقونة Lucide داخل هذا الإشعار
+            if (window.lucide) {
+                lucide.createIcons({
+                    root: toast,
+                    nameAttr: 'data-lucide'
+                });
+            }
 
             setTimeout(() => {
                 toast.remove();
@@ -3377,12 +5210,6 @@
 
         // الثوابت
         const DAYS = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس'];
-        const TIME_SLOTS = [
-            '0730 - 0910',
-            '0915 - 1055',
-            '1100 - 1240',
-            '1250 - 1430'
-        ];
 
         // هياكل البيانات الرئيسية
         let sections = {};      // الشعب (من SS01)
@@ -3582,11 +5409,52 @@
                 });
             }
 
+            // إضافة صناديق الفترات المعتمدة (سماوي)
+            let freetimePeriodHtml = '';
+            if (appliedFreetimePeriods.length > 0 && currentDay) {
+                // تصفية الفترات التي تنطبق على هذا اليوم
+                const dayPeriods = appliedFreetimePeriods.filter(sp => sp.day === currentDay);
+
+                dayPeriods.forEach(sp => {
+                    const period = sp.period;
+
+                    // تحويل الفترة لنص وقت (مثل "0730")
+                    const startTimeStr = String(Math.floor(period.start / 60)).padStart(2, '0') +
+                        String(period.start % 60).padStart(2, '0');
+                    const endTimeStr = String(Math.floor(period.end / 60)).padStart(2, '0') +
+                        String(period.end % 60).padStart(2, '0');
+
+                    const left = timeToPercent(startTimeStr);
+                    const width = ((period.end - period.start) / timeRangeMinutes) * 100;
+
+                    // التحقق من وجود تعارض مع الجلسات الموجودة
+                    const hasConflict = daySessions && daySessions.some(s => {
+                        if (!s.time) return false;
+                        const [sEnd, sStart] = s.time.split(' - ');
+                        const sessionStart = parseInt(sStart.substring(0, 2)) * 60 + parseInt(sStart.substring(2, 4));
+                        const sessionEnd = parseInt(sEnd.substring(0, 2)) * 60 + parseInt(sEnd.substring(2, 4));
+                        // تحقق من التداخل الزمني
+                        return !(period.end <= sessionStart || period.start >= sessionEnd);
+                    });
+
+                    const conflictClass = hasConflict ? 'freetime-conflict' : 'freetime-available';
+                    const statusIcon = hasConflict ? '⚠️' : '✅';
+                    const statusText = hasConflict ? 'تعارض' : 'متاح';
+                    const tooltipText = `${statusIcon} ${statusText} - الفترة ${period.index}\nمن ${period.startStr} إلى ${period.endStr}`;
+
+                    freetimePeriodHtml += `<div class="freetime-period-slot ${conflictClass}" 
+                        style="right: ${left}%; width: ${width}%;"
+                        title="${tooltipText}">
+                        <span class="period-label">ف${period.index}</span>
+                    </div>`;
+                });
+            }
+
             // تحديد كلاس اليوم
             const dayMap = { 'الأحد': 'day-sun', 'الإثنين': 'day-mon', 'الثلاثاء': 'day-tue', 'الأربعاء': 'day-wed', 'الخميس': 'day-thu' };
             const dayClass = (currentDay && dayMap[currentDay]) ? dayMap[currentDay] : '';
 
-            return `<td class="day-column ${dayClass}"><div class="day-cell">${freeSlotsHtml}${targetSlots}${bars}</div></td>`;
+            return `<td class="day-column ${dayClass}"><div class="day-cell">${freeSlotsHtml}${freetimePeriodHtml}${targetSlots}${bars}</div></td>`;
         }
 
         // ═══════════════════════════════════════════════════════════════
@@ -3981,14 +5849,50 @@
                 renderAllData();
 
                 showLoading(false);
-                showToast('✅ تم تحليل البيانات بنجاح', 'success');
+
+                // بدء الجولة التفاعلية عند أول استخدام
+                const tourCompleted = localStorage.getItem('tourCompleted');
+                console.log('🎯 Tour check:', tourCompleted ? 'مكتمل' : 'لم يتم');
+                if (!tourCompleted) {
+                    setTimeout(() => {
+                        console.log('🚀 بدء الجولة التفاعلية...');
+                        startTour();
+                    }, 800);
+                }
 
                 return true;
             } catch (error) {
                 console.error('خطأ في معالجة الملفات:', error);
                 showLoading(false);
-                showToast('❌ حدث خطأ في معالجة الملفات', 'error');
+                showToast('حدث خطأ في معالجة الملفات', 'error');
                 return false;
+            }
+        }
+
+        // تفعيل توهج جذب الانتباه للشعب الظاهرة
+        function triggerAttentionGlow() {
+            const visibleRow = document.querySelector('.section-row.visible-row');
+            if (!visibleRow) return;
+
+            // إضافة كلاس التوهج
+            visibleRow.classList.add('attention-glow');
+
+            // إظهار رسالة إرشادية
+            setTimeout(() => {
+                showToast('👆 اختر شعبة من "الشعب الظاهرة" للبدء', 'info');
+            }, 500);
+
+            // إزالة التوهج بعد 6 ثوانٍ
+            setTimeout(() => {
+                removeAttentionGlow();
+            }, 6000);
+        }
+
+        // إزالة توهج جذب الانتباه
+        function removeAttentionGlow() {
+            const visibleRow = document.querySelector('.section-row.visible-row');
+            if (visibleRow) {
+                visibleRow.classList.remove('attention-glow');
             }
         }
 
@@ -4067,8 +5971,8 @@
                     </th>
 
                     ${isTrainersTable ?
-                        '<th class="col-stat text-contact">اتصال</th><th class="col-stat text-quota">نصاب</th>' :
-                        '<th class="col-stat text-contact">الرقم</th><th class="col-stat text-credits">س معتمدة</th>'}`;
+                        '<th class="col-stat text-contact">اتصال</th><th class="col-stat text-quota">النصاب</th>' :
+                        '<th class="col-stat text-contact">الرقم</th><th class="col-stat text-credits">س. م.</th>'}`;
 
                 DAYS.forEach((day, idx) => {
                     // إضافة كلاس اليوم المناسب للرأس
@@ -4088,6 +5992,79 @@
 
             console.log('✅ تم تحديث رؤوس الجداول (Timeline) مع الفلاتر');
         }
+
+        // ═══════════════════════════════════════════════════════════════
+        //  نسخ قائمة المتدربين المدمجين (Double-click)
+        // ═══════════════════════════════════════════════════════════════
+        document.addEventListener('dblclick', async function (e) {
+            // نسخ قائمة المجموعة المدمجة
+            const mergeCount = e.target.closest('.merge-count');
+            if (mergeCount && mergeCount.dataset.copy) {
+                try {
+                    await navigator.clipboard.writeText(mergeCount.dataset.copy);
+                    showToast('تم نسخ قائمة المتدربين للحافظة', 'success');
+                } catch (err) {
+                    console.error('فشل النسخ:', err);
+                    showToast('فشل في النسخ', 'error');
+                }
+                return;
+            }
+
+            // نسخ رقم المتدرب الفردي
+            const traineeIdCell = e.target.closest('.trainee-id-cell');
+            if (traineeIdCell && traineeIdCell.dataset.copy) {
+                try {
+                    await navigator.clipboard.writeText(traineeIdCell.dataset.copy);
+                    showToast('تم نسخ رقم المتدرب: ' + traineeIdCell.dataset.copy, 'success');
+                } catch (err) {
+                    console.error('فشل النسخ:', err);
+                    showToast('فشل في النسخ', 'error');
+                }
+            }
+        });
+
+        // ═══════════════════════════════════════════════════════════════
+        //  إظهار/إخفاء Tooltip المجموعات المدمجة (position: fixed)
+        // ═══════════════════════════════════════════════════════════════
+        document.addEventListener('mouseenter', function (e) {
+            if (!e.target || !e.target.closest) return;
+            const mergedCell = e.target.closest('.merged-cell');
+            if (mergedCell) {
+                const tooltip = mergedCell.querySelector('.merged-tooltip');
+                if (tooltip) {
+                    const rect = mergedCell.getBoundingClientRect();
+                    const tooltipHeight = 300; // max-height
+                    const spaceBelow = window.innerHeight - rect.bottom;
+
+                    // تحديد الموقع: فوق أو تحت
+                    if (spaceBelow < tooltipHeight && rect.top > tooltipHeight) {
+                        // إظهار فوق
+                        tooltip.style.top = 'auto';
+                        tooltip.style.bottom = (window.innerHeight - rect.top + 8) + 'px';
+                    } else {
+                        // إظهار تحت
+                        tooltip.style.bottom = 'auto';
+                        tooltip.style.top = (rect.bottom + 8) + 'px';
+                    }
+
+                    // التوسيط أفقياً
+                    tooltip.style.left = (rect.left + rect.width / 2 - 160) + 'px'; // 160 = نصف min-width
+
+                    tooltip.classList.add('visible');
+                }
+            }
+        }, true);
+
+        document.addEventListener('mouseleave', function (e) {
+            if (!e.target || !e.target.closest) return;
+            const mergedCell = e.target.closest('.merged-cell');
+            if (mergedCell) {
+                const tooltip = mergedCell.querySelector('.merged-tooltip');
+                if (tooltip) {
+                    tooltip.classList.remove('visible');
+                }
+            }
+        }, true);
 
         // ═══════════════════════════════════════════════════════════════
         //  منطق فلاتر الأعمدة
@@ -4467,6 +6444,19 @@
             tbody.innerHTML = '';
             let index = 1;
 
+            // إذا لم يتم اختيار شعبة، إظهار رسالة
+            if (visibleSections.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="10" class="empty-table-message">
+                            <i data-lucide="search"></i>
+                            اختر شعبة لإظهار البيانات
+                        </td>
+                    </tr>`;
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+                return;
+            }
+
             // تصفية وترتيب المدربين
             let filteredTrainers = Object.values(trainers);
 
@@ -4488,6 +6478,32 @@
                     )];
                     // يجب أن يكون لديه قسم واحد على الأقل من الأقسام المختارة
                     return depts.some(d => columnFilters.trainer.dept.includes(d));
+                });
+            }
+
+            // 3. فلترة المدربين المتاحين للفترات المعتمدة
+            if (showFreeOnly && appliedFreetimePeriods.length > 0) {
+                filteredTrainers = filteredTrainers.filter(trainer => {
+                    const schedule = getTrainerSchedule(trainer.id);
+
+                    for (const sp of appliedFreetimePeriods) {
+                        const period = sp.period;
+                        const day = sp.day;
+
+                        // فحص جلسات هذا اليوم
+                        const daySchedule = schedule.schedule[day] || {};
+                        for (const [time, data] of Object.entries(daySchedule)) {
+                            const [sEnd, sStart] = time.split(' - ');
+                            const sessionStart = parseInt(sStart.substring(0, 2)) * 60 + parseInt(sStart.substring(2, 4));
+                            const sessionEnd = parseInt(sEnd.substring(0, 2)) * 60 + parseInt(sEnd.substring(2, 4));
+
+                            // تحقق من التداخل الزمني
+                            if (!(period.end <= sessionStart || period.start >= sessionEnd)) {
+                                return false; // يوجد تعارض
+                            }
+                        }
+                    }
+                    return true; // لا يوجد تعارض - متاح
                 });
             }
 
@@ -4530,7 +6546,7 @@
                             room: data.room
                         });
                     });
-                    cells += createTimelineCell(daySessions, targetSections);
+                    cells += createTimelineCell(daySessions, targetSections, false, day);
                 });
 
                 row.innerHTML = cells;
@@ -4551,6 +6567,19 @@
 
             tbody.innerHTML = '';
             let index = 1;
+
+            // إذا لم يتم اختيار شعبة، إظهار رسالة
+            if (visibleSections.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="10" class="empty-table-message">
+                            <i data-lucide="search"></i>
+                            اختر شعبة لإظهار البيانات
+                        </td>
+                    </tr>`;
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+                return;
+            }
 
             // تصفية المتدربين بناءً على الشعب الظاهرة
             let filteredTrainees = Object.values(trainees);
@@ -4599,9 +6628,40 @@
                 return false; // لا يوجد تعارض
             }
 
+            // دالة فحص التعارض مع الفترات المعتمدة
+            function hasConflictWithFreetimePeriods(trainee) {
+                if (appliedFreetimePeriods.length === 0) return false;
+
+                const schedule = getTraineeSchedule(trainee.id);
+
+                for (const sp of appliedFreetimePeriods) {
+                    const period = sp.period;
+                    const day = sp.day;
+
+                    // فحص جلسات هذا اليوم
+                    const daySchedule = schedule.schedule[day] || {};
+                    for (const [time, data] of Object.entries(daySchedule)) {
+                        const [sEnd, sStart] = time.split(' - ');
+                        const sessionStart = parseInt(sStart.substring(0, 2)) * 60 + parseInt(sStart.substring(2, 4));
+                        const sessionEnd = parseInt(sEnd.substring(0, 2)) * 60 + parseInt(sEnd.substring(2, 4));
+
+                        // تحقق من التداخل الزمني
+                        if (!(period.end <= sessionStart || period.start >= sessionEnd)) {
+                            return true; // يوجد تعارض
+                        }
+                    }
+                }
+                return false; // لا يوجد تعارض
+            }
+
             // فلترة المتدربين المتاحين فقط إذا كان الخيار مفعلاً
             if (showFreeOnly && targetSections.length > 0) {
                 filteredTrainees = filteredTrainees.filter(trainee => !hasConflictWithTarget(trainee));
+            }
+
+            // فلترة المتدربين المتاحين للفترات المعتمدة
+            if (showFreeOnly && appliedFreetimePeriods.length > 0) {
+                filteredTrainees = filteredTrainees.filter(trainee => !hasConflictWithFreetimePeriods(trainee));
             }
 
             // ترتيب المتدربين: المتاحين أولاً ثم حسب عدد الساعات
@@ -4627,8 +6687,8 @@
                 return schedB.totalCreditHours - schedA.totalCreditHours;
             });
 
-            // عرض أول 100 متدرب/مجموعة فقط للأداء
-            const displayTrainees = sortedTrainees.slice(0, 100);
+            // عرض جميع المتدربين المفلترين (بدون حد)
+            const displayTrainees = sortedTrainees;
 
             // هل يوجد شعب مستهدفة؟
             const showTargetSlots = targetSections.length > 0;
@@ -4659,10 +6719,12 @@
                         row.classList.add('merged-group');
                     }
 
-                    // قائمة أسماء المتدربين للـ tooltip
-                    const traineeNames = group.trainees.map(t => `• ${t.name}`).join('\n');
-                    const traineeIds = group.trainees.map(t => t.id).join(', ');
-                    const tooltipText = `المتدربين (${group.trainees.length}):\n${traineeNames}\n\nالأرقام: ${traineeIds}`;
+                    // قائمة المتدربين للـ tooltip (رقم | ID | اسم)
+                    const traineeList = group.trainees.map((t, i) => `${i + 1}. ${t.id} - ${t.name}`).join('\n');
+                    const tooltipText = `💡 انقر مرتين على الرقم لنسخ القائمة\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nالمتدربين (${group.trainees.length}):\n${traineeList}`;
+
+                    // بيانات النسخ (اسم [TAB] رقم) لكل سطر
+                    const copyData = group.trainees.map(t => `${t.name}\t${t.id}`).join('\n');
 
                     // الحصول على التخصص (جميع المتدربين في المجموعة من نفس التخصص)
                     const traineeMajor = group.trainees[0]?.major || '';
@@ -4670,9 +6732,8 @@
                     // بناء خلايا الجدول الأساسية
                     let cells = `
                         <td class="col-id">${index}</td>
-                        <td class="col-name merged-cell" title="${tooltipText}">
-                            <span class="merge-count">${group.trainees.length}</span>
-                            <span class="merge-label">مجموعة متطابقة</span>
+                        <td class="col-name merged-cell" title="${tooltipText.replace(/"/g, '&quot;')}">
+                            <span class="merge-count" data-copy="${copyData.replace(/"/g, '&quot;')}">${group.trainees.length}</span>
                         </td>
                         <td class="col-dept" title="${traineeMajor}">${traineeMajor}</td>
                         <td class="col-stat text-contact">-</td>
@@ -4702,6 +6763,11 @@
                 });
 
                 console.log(`✅ تم عرض ${groups.length} مجموعة من ${displayTrainees.length} متدرب (مدمج)`);
+
+                // تحديث أيقونات Lucide في الـ tooltips الجديدة
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
             }
             // ═══════════════════════════════════════════════════════════
             // عرض عادي (كل متدرب في صف)
@@ -4724,7 +6790,7 @@
                         <td class="col-id">${index}</td>
                         <td class="col-name trainee-name" title="${trainee.name}\n${trainee.phone || ''}">${trainee.name}</td>
                         <td class="col-dept" title="${trainee.major || ''}">${trainee.major || ''}</td>
-                        <td class="col-stat text-contact" style="font-size: 0.65rem;">${trainee.id}</td>
+                        <td class="col-stat text-contact trainee-id-cell" style="font-size: 0.65rem; cursor: pointer;" data-copy="${trainee.id}" title="انقر مرتين للنسخ">${trainee.id}</td>
                         <td class="col-stat text-credits">${scheduleData.totalCreditHours}</td>
                     `;
 
@@ -5018,6 +7084,17 @@
                     const typeCode = getTypeCode(section.scheduleType);
                     const sessionBadges = getSessionBadges(section.sessions);
                     const trainerName = section.trainerName ? ` - ${section.trainerName}` : '';
+
+                    // حساب العدد الفعلي من SF01
+                    const actualCount = Object.values(trainees).filter(t =>
+                        t.registrations.some(r => r.refNum === section.refNumber)
+                    ).length;
+
+                    // إذا كان العدد الفعلي أقل، إظهار الفرق
+                    const countDisplay = actualCount < section.enrolled
+                        ? `<span style="color: #f59e0b;">${actualCount}</span>/${section.enrolled}`
+                        : `${section.enrolled}`;
+
                     return `
                         <div class="section-item" onclick="addVisibleSection('${section.refNumber}')">
                             <div class="section-info">
@@ -5025,7 +7102,7 @@
                                 <span class="section-sessions">${sessionBadges}</span>
                                 <span class="section-name">${section.courseName}${trainerName}</span>
                             </div>
-                            <span class="trainee-badge">${section.enrolled}</span>
+                            <span class="trainee-badge">${countDisplay}</span>
                         </div>`;
                 }).join('');
 
@@ -5041,6 +7118,10 @@
             }
 
             visibleSections.push(refNumber);
+
+            // إزالة توهج جذب الانتباه عند اختيار شعبة
+            removeAttentionGlow();
+
             updateVisibleChips();
             renderAllData();
             // لا نغلق القائمة - نتركها مفتوحة للاختيار المتعدد
@@ -5058,6 +7139,19 @@
                 // تحديث عدد المتاحين في chips المستهدفة
                 updateTargetChips();
             }
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        //  بحث أوقات الفراغ - Freetime Search (placeholder)
+        // ═══════════════════════════════════════════════════════════════
+        function showFreetimeDropdown() {
+            // TODO: سيتم تنفيذ هذه الدالة لاحقاً
+            console.log('showFreetimeDropdown - placeholder');
+        }
+
+        function searchFreetimeSlots(searchTerm) {
+            // TODO: سيتم تنفيذ هذه الدالة لاحقاً
+            console.log('searchFreetimeSlots:', searchTerm);
         }
 
         function updateVisibleChips() {
@@ -5361,6 +7455,166 @@
                 mainPage.style.display = 'flex';
             }
         });
+
+        // ═══════════════════════════════════════════════════════════════
+        //  الجولة التفاعلية - Interactive Tour
+        // ═══════════════════════════════════════════════════════════════
+        const TOUR_STORAGE_KEY = 'tourCompleted';
+        let currentTourStep = 0;
+        let tourActive = false;
+
+        const tourSteps = [
+            {
+                selector: '.section-row.visible-row',
+                title: 'الشعب الظاهرة',
+                description: 'اختر شعبة من هنا لعرض جداول المدربين والمتدربين المسجلين فيها. يمكنك اختيار أكثر من شعبة.',
+                position: 'bottom'
+            },
+            {
+                selector: '.section-row.target-row',
+                title: 'الشعب المستهدفة',
+                description: 'حدد شعبة مستهدفة لمعرفة من يستطيع الانضمام إليها. ستظهر التعارضات بلون مختلف في الجداول.',
+                position: 'bottom'
+            },
+            {
+                selector: '.freetime-search-btn',
+                title: 'البحث عن موعد',
+                description: 'ابحث عن أفضل الأوقات لفتح شعبة جديدة بناءً على فراغات المتدربين والمدربين.',
+                position: 'bottom'
+            },
+            {
+                selector: '#freeOnlySwitch',
+                title: 'المتاحين فقط',
+                description: 'فعّل هذا الخيار لإظهار المتدربين والمدربين المتاحين فقط (بدون تعارضات مع الشعب المستهدفة).',
+                position: 'bottom'
+            },
+            {
+                selector: '.table-section:first-of-type',
+                title: 'جدول المدربين',
+                description: 'هنا تظهر جداول المدربين مع ساعات الاتصال والنصاب. الألوان تدل على نوع الجلسة (نظري/عملي).',
+                position: 'bottom'
+            },
+            {
+                selector: '.table-section:last-of-type',
+                title: 'جدول المتدربين',
+                description: 'هنا تظهر جداول المتدربين مع الساعات المعتمدة. يمكنك استخدام الفلاتر لتصفية القائمة.',
+                position: 'top'
+            }
+        ];
+
+        function startTour() {
+            currentTourStep = 0;
+            tourActive = true;
+            document.getElementById('tourOverlay').classList.add('active');
+            document.getElementById('tourTooltip').classList.add('active');
+            showTourStep(0);
+        }
+
+        function endTour() {
+            tourActive = false;
+            document.getElementById('tourOverlay').classList.remove('active');
+            document.getElementById('tourTooltip').classList.remove('active');
+            document.getElementById('tourSpotlight').style.display = 'none';
+            localStorage.setItem(TOUR_STORAGE_KEY, 'true');
+        }
+
+        function nextTourStep() {
+            if (currentTourStep < tourSteps.length - 1) {
+                currentTourStep++;
+                showTourStep(currentTourStep);
+            } else {
+                endTour();
+                showToast('🎉 أنت جاهز! ابدأ باختيار شعبة من "الشعب الظاهرة"', 'success');
+            }
+        }
+
+        function prevTourStep() {
+            if (currentTourStep > 0) {
+                currentTourStep--;
+                showTourStep(currentTourStep);
+            }
+        }
+
+        function showTourStep(stepIndex) {
+            const step = tourSteps[stepIndex];
+            const element = document.querySelector(step.selector);
+
+            if (!element) {
+                console.warn('Tour element not found:', step.selector);
+                nextTourStep();
+                return;
+            }
+
+            // تحديث المحتوى
+            document.getElementById('tourStepIndicator').textContent = `الخطوة ${stepIndex + 1} من ${tourSteps.length}`;
+            document.getElementById('tourTitle').textContent = step.title;
+            document.getElementById('tourDescription').textContent = step.description;
+
+            // تحديث أزرار التنقل
+            document.getElementById('tourPrevBtn').style.display = stepIndex === 0 ? 'none' : 'inline-block';
+            document.getElementById('tourNextBtn').textContent = stepIndex === tourSteps.length - 1 ? 'إنهاء ✓' : 'التالي ►';
+
+            // تحديد موقع العنصر
+            const rect = element.getBoundingClientRect();
+            const spotlight = document.getElementById('tourSpotlight');
+            const tooltip = document.getElementById('tourTooltip');
+            const arrow = document.getElementById('tourArrow');
+
+            // إضاءة العنصر
+            spotlight.style.display = 'block';
+            spotlight.style.top = (rect.top + window.scrollY - 5) + 'px';
+            spotlight.style.left = (rect.left - 5) + 'px';
+            spotlight.style.width = (rect.width + 10) + 'px';
+            spotlight.style.height = (rect.height + 10) + 'px';
+
+            // إزالة كلاسات السهم السابقة
+            arrow.className = 'tour-arrow';
+
+            // تحديد موقع التلميح
+            const tooltipWidth = 320;
+            const tooltipHeight = 180;
+            let tooltipTop, tooltipLeft;
+
+            if (step.position === 'bottom') {
+                tooltipTop = rect.bottom + 15;
+                tooltipLeft = rect.left + (rect.width / 2) - (tooltipWidth / 2);
+                arrow.classList.add('top');
+                arrow.style.left = '50%';
+                arrow.style.transform = 'translateX(-50%) rotate(45deg)';
+            } else if (step.position === 'top') {
+                tooltipTop = rect.top - tooltipHeight - 15;
+                tooltipLeft = rect.left + (rect.width / 2) - (tooltipWidth / 2);
+                arrow.classList.add('bottom');
+                arrow.style.left = '50%';
+                arrow.style.transform = 'translateX(-50%) rotate(45deg)';
+            }
+
+            // التأكد من عدم خروج التلميح من الشاشة
+            if (tooltipLeft < 10) tooltipLeft = 10;
+            if (tooltipLeft + tooltipWidth > window.innerWidth - 10) {
+                tooltipLeft = window.innerWidth - tooltipWidth - 10;
+            }
+            if (tooltipTop < 10) tooltipTop = rect.bottom + 15;
+
+            tooltip.style.top = tooltipTop + 'px';
+            tooltip.style.left = tooltipLeft + 'px';
+
+            // التمرير للعنصر إذا لزم الأمر
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // التحقق من عرض الجولة عند أول استخدام
+        function checkFirstTimeTour() {
+            const tourCompleted = localStorage.getItem(TOUR_STORAGE_KEY);
+
+            // إذا كانت هذه المرة الأولى، ابدأ الجولة مباشرة
+            if (!tourCompleted) {
+                setTimeout(() => {
+                    startTour();
+                }, 500); // تأخير بسيط لضمان تحميل العناصر
+            }
+        }
+
     </script>
 </body>
 
