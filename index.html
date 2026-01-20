@@ -551,6 +551,31 @@
             height: 16px;
         }
 
+        /* زر إعادة تعيين الفترات */
+        .freetime-reset-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .freetime-reset-btn:hover {
+            background: rgba(239, 68, 68, 0.3);
+            border-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+        }
+
+        .freetime-reset-btn i {
+            width: 16px;
+            height: 16px;
+        }
+
         /* Layout Adjustments for condensed width */
         .split-rows-container .section-input-group {
             min-width: auto;
@@ -3508,6 +3533,11 @@
                             <i data-lucide="search"></i>
                             <span>البحث عن موعد</span>
                         </button>
+                        <!-- زر إعادة تعيين الفترات المعتمدة -->
+                        <button class="freetime-reset-btn" id="freetimeResetBtn" onclick="resetSelectedPeriods()"
+                            title="إعادة تعيين الفترات المعتمدة" style="display: none;">
+                            <i data-lucide="x-circle"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -4217,16 +4247,17 @@
                     section.sessions.forEach(session => {
                         if (session.time && session.time !== ' - ') {
                             const [endStr, startStr] = session.time.split(' - ');
-                            if (startStr && startStr.trim().length === 4) {
-                                const mins = parseInt(startStr.substring(0, 2)) * 60 + parseInt(startStr.substring(2, 4));
-                                if (!isNaN(mins)) startTimes.add(mins);
+                            if (startStr && startStr.trim()) {
+                                // استخدام parseTimeString للتعامل مع جميع تنسيقات الوقت
+                                const mins = parseTimeString(startStr.trim());
+                                if (mins > 0) startTimes.add(mins);
                             }
                         }
                     });
                 }
             });
 
-            console.log('⏰ أوقات البداية المستخرجة:', Array.from(startTimes).sort((a, b) => a - b));
+            console.log('⏰ أوقات البداية المستخرجة:', Array.from(startTimes).sort((a, b) => a - b).map(m => `${Math.floor(m / 60)}:${(m % 60).toString().padStart(2, '0')}`));
             return Array.from(startTimes).sort((a, b) => a - b);
         }
 
@@ -4239,9 +4270,10 @@
                     section.sessions.forEach(session => {
                         if (session.time && session.time !== ' - ') {
                             const [endStr, startStr] = session.time.split(' - ');
-                            if (startStr && startStr.trim().length === 4) {
-                                const mins = parseInt(startStr.substring(0, 2)) * 60 + parseInt(startStr.substring(2, 4));
-                                if (!isNaN(mins)) frequency[mins] = (frequency[mins] || 0) + 1;
+                            if (startStr && startStr.trim()) {
+                                // استخدام parseTimeString للتعامل مع جميع تنسيقات الوقت
+                                const mins = parseTimeString(startStr.trim());
+                                if (mins > 0) frequency[mins] = (frequency[mins] || 0) + 1;
                             }
                         }
                     });
@@ -4317,8 +4349,11 @@
             const [endStr, startStr] = sessionTime.split(' - ');
             if (!startStr || !endStr) return false;
 
-            const sessionStart = parseInt(startStr.substring(0, 2)) * 60 + parseInt(startStr.substring(2, 4));
-            const sessionEnd = parseInt(endStr.substring(0, 2)) * 60 + parseInt(endStr.substring(2, 4));
+            // استخدام parseTimeString للتعامل مع جميع تنسيقات الوقت
+            const sessionStart = parseTimeString(startStr.trim());
+            const sessionEnd = parseTimeString(endStr.trim());
+
+            if (sessionStart === 0 && sessionEnd === 0) return false;
 
             // تعارض إذا كان هناك تداخل
             return !(sessionEnd <= periodStart || sessionStart >= periodEnd);
@@ -4493,8 +4528,19 @@
             selectedAvailabilityPeriods = [];
             filteredTraineePool = null;
             filteredTrainerPool = null;
+
+            // مسح الفترات المعتمدة من الجداول الرئيسية
+            appliedFreetimePeriods = [];
+
             generateAvailabilityTable();
             updateApplyButtonState();
+
+            // إخفاء زر إعادة التعيين السريع
+            updateFreetimeResetButton();
+
+            // إعادة عرض الجداول لإزالة صناديق الفترات
+            renderAllData();
+
             showToast('تم إعادة تعيين الاختيارات', 'info');
         }
 
@@ -4512,6 +4558,20 @@
             }
         }
 
+        // تحديث ظهور زر إعادة التعيين السريع
+        function updateFreetimeResetButton() {
+            const btn = document.getElementById('freetimeResetBtn');
+            if (btn) {
+                if (appliedFreetimePeriods.length > 0) {
+                    btn.style.display = 'flex';
+                } else {
+                    btn.style.display = 'none';
+                }
+                // إعادة تهيئة الأيقونات
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        }
+
         // اعتماد الفترات المختارة للعرض في الجداول الرئيسية
         function applySelectedPeriodsToTables() {
             if (selectedAvailabilityPeriods.length === 0) {
@@ -4526,6 +4586,9 @@
 
             // إغلاق صفحة التحليل
             hideAvailabilityPage();
+
+            // إظهار زر إعادة التعيين السريع
+            updateFreetimeResetButton();
 
             // إعادة عرض الجداول لإظهار الفترات
             renderAllData();
@@ -5244,12 +5307,35 @@
         //  دوال Timeline
         // ═══════════════════════════════════════════════════════════════
 
-        // تحويل نص الوقت "0730" إلى دقائق
+        // تحويل نص الوقت "0730" أو "730" إلى دقائق
         function parseTimeString(timeStr) {
-            if (!timeStr || timeStr.length < 4) return 0;
-            const hours = parseInt(timeStr.substring(0, 2)) || 0;
-            const mins = parseInt(timeStr.substring(2, 4)) || 0;
-            return hours * 60 + mins;
+            if (!timeStr) return 0;
+
+            // إزالة المسافات
+            timeStr = timeStr.trim();
+
+            // التعامل مع تنسيق HH:MM
+            if (timeStr.includes(':')) {
+                const parts = timeStr.split(':');
+                const hours = parseInt(parts[0]) || 0;
+                const mins = parseInt(parts[1]) || 0;
+                return hours * 60 + mins;
+            }
+
+            // التعامل مع التنسيق الرقمي (3 أو 4 أرقام)
+            // "800" = 8:00, "0800" = 8:00, "1030" = 10:30
+            if (timeStr.length === 3) {
+                // "800" -> "0800"
+                timeStr = '0' + timeStr;
+            }
+
+            if (timeStr.length >= 4) {
+                const hours = parseInt(timeStr.substring(0, 2)) || 0;
+                const mins = parseInt(timeStr.substring(2, 4)) || 0;
+                return hours * 60 + mins;
+            }
+
+            return 0;
         }
 
         // حساب النطاق الزمني من البيانات
