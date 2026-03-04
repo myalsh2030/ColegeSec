@@ -70,6 +70,431 @@
         }
 
         /* ═══════════════════════════════════════════════════════════════
+           الوضع الفاتح
+           ═══════════════════════════════════════════════════════════════ */
+        [data-theme="light"] {
+            /* الألوان الأساسية */
+            --bg-primary: #f0f2f5;
+            --bg-secondary: #ffffff;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-glass: rgba(0, 0, 0, 0.03);
+
+            /* ألوان النص */
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+
+            /* التدرجات */
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --gradient-header: linear-gradient(90deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+
+            /* الظلال */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+            --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);
+
+            /* الحدود */
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* إخفاء الخلفية المتحركة في الوضع الفاتح */
+        [data-theme="light"] body::before {
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.02) 0%, transparent 70%);
+        }
+
+        /* تعديلات الوضع الفاتح للعناصر ذات الألوان الثابتة */
+        [data-theme="light"] .section-row {
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme="light"] .section-row.visible-row {
+            background: rgba(243, 244, 246, 0.9) !important;
+            border: 1px solid rgba(147, 51, 234, 0.15);
+        }
+
+        [data-theme="light"] .section-row.target-row {
+            background: rgba(255, 251, 235, 0.9) !important;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        [data-theme="light"] .control-row {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="light"] .upload-zone {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(99, 102, 241, 0.25);
+        }
+
+        [data-theme="light"] .upload-zone:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        [data-theme="light"] .feature-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        [data-theme="light"] .feature-icon {
+            color: #6366f1 !important;
+        }
+
+        [data-theme="light"] .version-badge {
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            color: #6366f1;
+        }
+
+        [data-theme="light"] .chip {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        [data-theme="light"] .data-table thead th {
+            background: #f8fafc !important;
+            color: #334155;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+        }
+
+        [data-theme="light"] .data-table tbody tr {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        [data-theme="light"] .data-table tbody tr:hover {
+            background: rgba(99, 102, 241, 0.04);
+        }
+
+        [data-theme="light"] .filter-select {
+            background: #ffffff;
+        }
+
+        [data-theme="light"] .section-search-input input {
+            background: #ffffff;
+            color: #1e293b;
+        }
+
+        [data-theme="light"] .section-search-dropdown {
+            background: #ffffff;
+            border-color: rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        [data-theme="light"] .toggle {
+            background: #cbd5e1;
+        }
+
+        [data-theme="light"] .toggle.active {
+            background: #6366f1;
+        }
+
+        [data-theme="light"] .table-header {
+            background: rgba(248, 250, 252, 0.95);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .toast {
+            background: #ffffff;
+            color: #1e293b;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .multi-select-dropdown {
+            background: #ffffff;
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+
+        [data-theme="light"] .multi-select-trigger {
+            background: #ffffff;
+        }
+
+        [data-theme="light"] .section-chip {
+            background: rgba(99, 102, 241, 0.08);
+            border-color: rgba(99, 102, 241, 0.2);
+            color: #1e293b;
+        }
+
+        [data-theme="light"] .section-chip.target {
+            background: rgba(245, 158, 11, 0.08);
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+
+        /* تحسين وضوح أسماء المدربين والمتدربين في الوضع الفاتح */
+        [data-theme="light"] .data-table .col-name {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        /* تحسين وضوح الصف الأول في الوضع الفاتح */
+        [data-theme="light"] .section-row {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid rgba(99, 102, 241, 0.3) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* تحسين وضوح القائمة الظاهرة في الوضع الفاتح (إزالة الرمادي) */
+        [data-theme="light"] .section-row.visible-row {
+            background: #ffffff !important;
+            border: 1px solid rgba(99, 102, 241, 0.5) !important;
+        }
+
+        /* تحسين وضوح القائمة المستهدفة في الوضع الفاتح (إزالة الرمادي) */
+        [data-theme="light"] .section-row.target-row {
+            background: #fffbeb !important;
+            /* أصفر فاتح جداً */
+            border: 1px solid rgba(245, 158, 11, 0.4) !important;
+        }
+
+        /* تحسين وضوح شريط التحكم في الوضع الفاتح */
+        [data-theme="light"] .section-row.controls-row {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border-color: rgba(99, 102, 241, 0.2) !important;
+        }
+
+        [data-theme="light"] .controls-row .btn-home {
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            color: #6366f1;
+        }
+
+        [data-theme="light"] .controls-row .btn-home:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: #6366f1;
+        }
+
+        [data-theme="light"] .controls-row .btn-help {
+            background: rgba(34, 211, 238, 0.08) !important;
+            border-color: rgba(34, 211, 238, 0.4) !important;
+            color: #0891b2 !important;
+        }
+
+        [data-theme="light"] .controls-row .btn-help:hover {
+            background: rgba(34, 211, 238, 0.15) !important;
+            border-color: #0891b2 !important;
+        }
+
+        [data-theme="light"] .controls-row .toggle-label {
+            color: #475569;
+        }
+
+        /* تحسين وضوح شريط البحث عن موعد في الوضع الفاتح */
+        [data-theme="light"] .section-row.freetime-row {
+            background: #ecfeff !important;
+            /* سماوي فاتح جداً */
+            border-color: rgba(6, 182, 212, 0.3) !important;
+        }
+
+        [data-theme="light"] .freetime-row .filter-section-label {
+            color: #0891b2;
+        }
+
+        /* تحسين وضوح مربعات الشعب (Chips) في الوضع الفاتح */
+        [data-theme="light"] .section-chip {
+            background: rgba(255, 255, 255, 0.8) !important;
+            border-width: 2px !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="light"] .section-chip.visible {
+            border-color: rgba(99, 102, 241, 0.4) !important;
+        }
+
+        [data-theme="light"] .section-chip.target {
+            border-color: rgba(251, 191, 36, 0.5) !important;
+        }
+
+        [data-theme="light"] .section-chip span {
+            color: #1e293b;
+            /* لون غامق جداً */
+            font-weight: 600;
+        }
+
+        [data-theme="light"] .section-chip .chip-ref,
+        [data-theme="light"] .section-chip .chip-count,
+        [data-theme="light"] .section-chip .chip-available {
+            color: #000000 !important;
+            /* نص أسود للتباين العالي على الخلفيات الملونة */
+            font-weight: 700 !important;
+        }
+
+        [data-theme="light"] .section-chip .chip-ref {
+            opacity: 0.9;
+        }
+
+        [data-theme="light"] .section-chip .chip-remove {
+            color: #64748b;
+        }
+
+        [data-theme="light"] .custom-trainees-btn {
+            background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%) !important;
+            color: #4c1d95 !important;
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2) !important;
+        }
+
+        [data-theme="light"] .custom-trainees-btn:hover {
+            background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%) !important;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+        }
+
+        [data-theme="light"] .custom-trainer-btn {
+            background: linear-gradient(135deg, #67e8f9 0%, #22d3ee 100%) !important;
+            color: #164e63 !important;
+            box-shadow: 0 2px 8px rgba(8, 145, 178, 0.2) !important;
+        }
+
+        [data-theme="light"] .custom-trainer-btn:hover {
+            background: linear-gradient(135deg, #67e8f9 0%, #22d3ee 100%) !important;
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3) !important;
+        }
+
+        [data-theme="light"] .custom-room-btn {
+            background: linear-gradient(135deg, #6ee7b7 0%, #34d399 100%) !important;
+            color: #064e3b !important;
+            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2) !important;
+        }
+
+        [data-theme="light"] .custom-room-btn:hover {
+            background: linear-gradient(135deg, #6ee7b7 0%, #34d399 100%) !important;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3) !important;
+        }
+
+        /* تحسين زر البحث عن موعد في الوضع الفاتح */
+        [data-theme="light"] .freetime-search-btn {
+            background: rgba(34, 211, 238, 0.1) !important;
+            color: #0891b2 !important;
+            border: 1px solid #06b6d4 !important;
+            box-shadow: 0 1px 3px rgba(6, 182, 212, 0.1);
+        }
+
+        [data-theme="light"] .freetime-search-btn:hover {
+            background: rgba(34, 211, 238, 0.2) !important;
+            border-color: #0891b2 !important;
+            box-shadow: 0 2px 5px rgba(6, 182, 212, 0.2);
+            transform: translateY(-1px);
+        }
+
+        [data-theme="light"] .freetime-search-btn i {
+            color: #0891b2 !important;
+        }
+
+        [data-theme="light"] .upload-privacy {
+            color: #16a34a;
+            background: rgba(34, 197, 94, 0.06);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        [data-theme="light"] .session-bar .bar-tooltip {
+            background: rgba(30, 41, 59, 0.95);
+            color: #f1f5f9;
+        }
+
+        [data-theme="light"] .availability-page {
+            background: rgba(240, 242, 245, 0.98);
+        }
+
+        [data-theme="light"] .availability-table th,
+        [data-theme="light"] .availability-table td {
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .availability-table th {
+            background: #f1f5f9;
+            color: #334155;
+        }
+
+        /* شريط التمرير في الوضع الفاتح */
+        [data-theme="light"] ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        [data-theme="light"] ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+        }
+
+        [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           زر تبديل الوضع (فاتح/غامق)
+           ═══════════════════════════════════════════════════════════════ */
+        .theme-toggle {
+            position: relative;
+            width: 52px;
+            height: 26px;
+            border-radius: 13px;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 0 3px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
+        }
+
+        .theme-toggle-knob {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .theme-toggle-knob svg {
+            width: 12px;
+            height: 12px;
+            color: #92400e;
+            transition: all 0.4s ease;
+        }
+
+        /* حالة الوضع الفاتح */
+        [data-theme="light"] .theme-toggle {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        [data-theme="light"] .theme-toggle-knob {
+            transform: translateX(-26px);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+        }
+
+        [data-theme="light"] .theme-toggle-knob svg {
+            color: #ffffff;
+        }
+
+        /* تأثير الانتقال السلس على body */
+        body,
+        body * {
+            transition-property: background-color, color, border-color, box-shadow;
+            transition-duration: 0.3s;
+            transition-timing-function: ease;
+        }
+
+        /* استثناء العناصر المتحركة من الانتقال البطيء */
+        .session-bar,
+        .upload-progress-bar,
+        .toast,
+        .loading-spinner {
+            transition: none !important;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
            إعادة التعيين والأساسيات
            ═══════════════════════════════════════════════════════════════ */
         * {
@@ -661,29 +1086,41 @@
             height: 16px;
         }
 
-        /* زر إعادة تعيين الفترات */
-        .freetime-reset-btn {
-            display: flex;
+        /* زر إعادة تعيين مدمج داخل الزر الرئيسي */
+        .btn-inline-reset {
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            width: 18px;
+            height: 18px;
+            background: #ef4444;
+            color: #fff;
+            border: 2px solid var(--bg-secondary);
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
             align-items: center;
             justify-content: center;
-            padding: 0.5rem;
-            background: rgba(239, 68, 68, 0.15);
-            color: #f87171;
-            border: 1px solid rgba(239, 68, 68, 0.4);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1;
+            padding: 0;
+            z-index: 5;
+            transition: all 0.2s ease;
         }
 
-        .freetime-reset-btn:hover {
-            background: rgba(239, 68, 68, 0.3);
-            border-color: #ef4444;
-            box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+        .btn-inline-reset:hover {
+            background: #dc2626;
+            transform: scale(1.2);
+            box-shadow: 0 0 6px rgba(239, 68, 68, 0.6);
         }
 
-        .freetime-reset-btn i {
-            width: 16px;
-            height: 16px;
+        /* الأزرار التي تحتوي على X تحتاج position: relative */
+        .freetime-search-btn,
+        .custom-trainees-btn,
+        .custom-trainer-btn,
+        .custom-room-btn {
+            position: relative;
         }
 
         /* Layout Adjustments for condensed width */
@@ -1071,9 +1508,65 @@
             max-height: 65vh;
         }
 
+        /* === عند إظهار 3 جداول (مدربين + قاعات + متدربين) === */
+        .tables-container.rooms-visible .table-section:first-child .data-table-wrapper {
+            max-height: 28vh;
+        }
+
+        .tables-container.rooms-visible #roomsSection .data-table-wrapper {
+            max-height: 25vh;
+        }
+
+        .tables-container.rooms-visible .table-section:last-child .data-table-wrapper {
+            min-height: 35vh;
+            max-height: 40vh;
+        }
+
+        /* === عند إخفاء المدربين (قاعات + متدربين فقط) === */
+        .tables-container.trainers-hidden .table-section:last-child .data-table-wrapper {
+            min-height: 55vh;
+            max-height: 65vh;
+        }
+
+        .tables-container.trainers-hidden.rooms-visible #roomsSection .data-table-wrapper {
+            max-height: 35vh;
+        }
+
+        .tables-container.trainers-hidden.rooms-visible .table-section:last-child .data-table-wrapper {
+            min-height: 45vh;
+            max-height: 55vh;
+        }
+
         /* إزالة الصفوف المنفصلة للعناوين - دمجها inline */
         .table-header {
             display: none;
+        }
+
+        /* زر نسخ بيانات المتدربين */
+        .copy-trainees-btn {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            z-index: 5;
+            display: none;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-family: inherit;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .copy-trainees-btn:hover {
+            background: rgba(99, 102, 241, 0.35);
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+            transform: translateY(-1px);
         }
 
         /* الجدول */
@@ -1140,6 +1633,12 @@
             background: rgba(6, 78, 59, 0.4) !important;
             /* أخضر غامق */
             border-top: 3px solid #10b981;
+        }
+
+        .room-header th {
+            background: rgba(120, 53, 15, 0.4) !important;
+            /* برتقالي/ذهبي غامق */
+            border-top: 3px solid #f59e0b;
         }
 
         /* ألوان الأيام - تلوين الأعمدة بالكامل */
@@ -1764,6 +2263,589 @@
         }
 
         /* ═══════════════════════════════════════════════════════════════
+           المتدربين المحددين
+           ═══════════════════════════════════════════════════════════════ */
+        .custom-trainees-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--font-family);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .custom-trainees-btn:hover {
+            background: linear-gradient(135deg, #9b6df7 0%, #8b5cf6 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .custom-trainees-btn i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .custom-trainees-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .custom-trainees-popup {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 520px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.3s ease;
+            overflow: hidden;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .custom-trainees-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-glass);
+        }
+
+        .custom-trainees-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .popup-close-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .popup-close-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .custom-trainees-body {
+            padding: 20px;
+        }
+
+        .custom-trainees-textarea {
+            width: 100%;
+            min-height: 160px;
+            padding: 14px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            resize: vertical;
+            direction: ltr;
+            text-align: left;
+            transition: border-color 0.2s ease;
+        }
+
+        .custom-trainees-textarea::placeholder {
+            color: var(--text-muted);
+            direction: rtl;
+            text-align: right;
+        }
+
+        .custom-trainees-textarea:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+        }
+
+        .custom-trainees-hint {
+            margin-top: 10px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .custom-trainees-stats {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            padding: 10px 14px;
+            background: var(--bg-glass);
+            border-radius: 8px;
+        }
+
+        .stat-found {
+            color: #34d399;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .stat-notfound {
+            color: #f87171;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .custom-trainees-footer {
+            display: flex;
+            gap: 10px;
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-color);
+            justify-content: flex-end;
+        }
+
+        .btn-apply-trainees {
+            padding: 8px 24px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-family);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-apply-trainees:hover:not(:disabled) {
+            background: linear-gradient(135deg, #9b6df7 0%, #8b5cf6 100%);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-apply-trainees:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .btn-cancel-trainees {
+            padding: 8px 20px;
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: var(--font-family);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-cancel-trainees:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+
+        /* شارة العدد على زر المتدربين المحددين */
+        .custom-trainees-badge {
+            background: #ef4444;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 9px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5px;
+            margin-right: -4px;
+            line-height: 1;
+        }
+
+        .custom-trainees-btn {
+            position: relative;
+        }
+
+        /* زر حذف متدرب محدد في الجدول */
+        .custom-trainee-remove {
+            background: none;
+            border: none;
+            color: #f87171;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0 4px;
+            margin-right: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .custom-trainee-remove:hover {
+            background: rgba(248, 113, 113, 0.15);
+            color: #ef4444;
+        }
+
+        /* تمييز صف متدرب محدد في الجدول */
+        tr.custom-trainee-row {
+            border-right: 3px solid rgba(139, 92, 246, 0.5);
+        }
+
+        tr.custom-trainee-row td:first-child {
+            position: relative;
+        }
+
+        tr.custom-trainee-row td:first-child::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #8b5cf6;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           المدرب المحدد
+           ═══════════════════════════════════════════════════════════════ */
+        .custom-trainer-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--font-family);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .custom-trainer-btn:hover {
+            background: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(8, 145, 178, 0.4);
+        }
+
+        .custom-trainer-btn i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .custom-trainer-badge {
+            background: #ef4444;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 9px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5px;
+            margin-right: -4px;
+            line-height: 1;
+        }
+
+        tr.custom-trainer-row {
+            border-right: 3px solid rgba(8, 145, 178, 0.5);
+        }
+
+        tr.custom-trainer-row td:first-child {
+            position: relative;
+        }
+
+        tr.custom-trainer-row td:first-child::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #0891b2;
+        }
+
+        /* المدرب المحدد - بحث داخل المنبثقة */
+        .custom-trainer-search-wrapper {
+            position: relative;
+        }
+
+        .custom-trainer-search-input {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            font-size: 0.9rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .custom-trainer-search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .custom-trainer-search-input:focus {
+            outline: none;
+            border-color: #0891b2;
+            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.15);
+        }
+
+        .custom-trainer-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            max-height: 200px;
+            overflow-y: auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 4px;
+            z-index: 10;
+            display: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .custom-trainer-dropdown.show {
+            display: block;
+        }
+
+        .custom-trainer-dropdown-item {
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.15s ease;
+        }
+
+        .custom-trainer-dropdown-item:hover {
+            background: rgba(8, 145, 178, 0.15);
+        }
+
+        .custom-trainer-dropdown-item .trainer-id-hint {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* المدربون المختارون - chips داخل المنبثقة */
+        .custom-trainer-selected {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+            min-height: 0;
+        }
+
+        .custom-trainer-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background: rgba(8, 145, 178, 0.15);
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #22d3ee;
+        }
+
+        .custom-trainer-chip button {
+            background: none;
+            border: none;
+            color: #f87171;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .custom-trainer-chip button:hover {
+            color: #ef4444;
+        }
+
+        .btn-apply-trainer {
+            padding: 8px 24px;
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-family);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-apply-trainer:hover:not(:disabled) {
+            background: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%);
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+        }
+
+        .btn-apply-trainer:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           القاعة المحددة
+           ═══════════════════════════════════════════════════════════════ */
+        .custom-room-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--font-family);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .custom-room-btn:hover {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+        }
+
+        .custom-room-btn i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .custom-room-badge {
+            background: #ef4444;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 9px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5px;
+            margin-right: -4px;
+            line-height: 1;
+        }
+
+        tr.custom-room-row {
+            border-right: 3px solid rgba(5, 150, 105, 0.5);
+        }
+
+        tr.custom-room-row td:first-child {
+            position: relative;
+        }
+
+        tr.custom-room-row td:first-child::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #059669;
+        }
+
+        .custom-room-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 14px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: border-color 0.2s ease;
+        }
+
+        .custom-room-textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .custom-room-textarea:focus {
+            outline: none;
+            border-color: #059669;
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+        }
+
+        .btn-apply-room {
+            padding: 8px 24px;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-family);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-apply-room:hover:not(:disabled) {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.4);
+        }
+
+        .btn-apply-room:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
            التحميل
            ═══════════════════════════════════════════════════════════════ */
         .loading-overlay {
@@ -1916,41 +2998,29 @@
                 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
-        /* الشعبة المستهدفة - إطار أكثر وضوحاً */
+        /* الشعبة المستهدفة - إطار ملون حسب الشعبة */
         .session-bar.target {
-            box-shadow: 0 0 0 3px var(--color-target),
-                0 0 12px var(--color-target),
+            box-shadow: 0 0 0 3px var(--tgt-color, var(--color-target)),
+                0 0 12px var(--tgt-color, var(--color-target)),
                 0 2px 8px rgba(0, 0, 0, 0.3);
-            animation: targetPulse 1.5s ease-in-out infinite;
+            animation: none;
         }
 
-        @keyframes targetPulse {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 3px var(--color-target), 0 0 12px var(--color-target);
-            }
-
-            50% {
-                box-shadow: 0 0 0 4px var(--color-target), 0 0 20px var(--color-target);
-            }
-        }
-
-        /* الشعبة الظاهرة (المختارة للعرض) - إطار أزرق مميز */
+        /* الشعبة الظاهرة (المختارة للعرض) - إطار ملون حسب الشعبة */
         .session-bar.visible-highlight {
-            box-shadow: 0 0 0 2px #60a5fa,
-                0 0 10px rgba(96, 165, 250, 0.6),
+            box-shadow: 0 0 0 2px var(--vis-color, #60a5fa),
+                0 0 10px color-mix(in srgb, var(--vis-color, #60a5fa) 60%, transparent),
                 0 2px 8px rgba(0, 0, 0, 0.3);
             transform: scaleY(1.05);
         }
 
         /* عند تطبيق الاثنين معاً - الشعبة ظاهرة ومستهدفة */
         .session-bar.visible-highlight.target {
-            box-shadow: 0 0 0 3px var(--color-target),
-                0 0 0 6px #60a5fa,
-                0 0 15px var(--color-target),
+            box-shadow: 0 0 0 3px var(--tgt-color, var(--color-target)),
+                0 0 0 6px var(--vis-color, #60a5fa),
+                0 0 15px var(--tgt-color, var(--color-target)),
                 0 2px 8px rgba(0, 0, 0, 0.3);
-            animation: targetPulse 1.5s ease-in-out infinite;
+            animation: none;
         }
 
         /* موضع الشعبة المستهدفة (الفراغ) */
@@ -1958,24 +3028,22 @@
             position: absolute;
             top: 4px;
             bottom: 4px;
-            border: 2px dashed var(--color-target);
+            border: 2px dashed var(--tgt-color, var(--color-target));
             border-radius: 4px;
-            background: rgba(251, 191, 36, 0.15);
+            background: color-mix(in srgb, var(--tgt-color, var(--color-target)) 15%, transparent);
             z-index: 0;
         }
 
-        /* صندوق الشعبة المستهدفة - متاح (أخضر/ذهبي) */
+        /* صندوق الشعبة المستهدفة - متاح */
         .target-slot.available {
-            border: 2px dashed var(--color-target);
-            background: rgba(251, 191, 36, 0.2);
-            animation: targetSlotPulse 1.5s ease-in-out infinite;
+            border: 2px dashed var(--tgt-color, var(--color-target));
+            background: color-mix(in srgb, var(--tgt-color, var(--color-target)) 20%, transparent);
         }
 
         /* صندوق الشعبة المستهدفة - تعارض (أحمر) - يظهر فوق الشريط */
         .target-slot.conflict {
             border: 3px solid #ef4444;
             background: rgba(239, 68, 68, 0.35);
-            animation: conflictPulse 1s ease-in-out infinite;
             z-index: 5;
             box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
         }
@@ -2998,6 +4066,16 @@
             color: #818cf8;
         }
 
+        .cell-rooms {
+            background: rgba(6, 182, 212, 0.15);
+            color: #22d3ee;
+        }
+
+        .cell-rooms.no-rooms {
+            color: #ef4444 !important;
+            background: rgba(239, 68, 68, 0.2);
+        }
+
         .cell-trainees {
             background: rgba(16, 185, 129, 0.15);
             color: #34d399;
@@ -3045,7 +4123,7 @@
             font-weight: 700;
             font-size: 0.9rem;
             color: var(--text-primary);
-            text-align: right;
+            text-align: center;
             padding: 0.5rem 0.6rem;
             background: var(--bg-secondary);
             white-space: nowrap;
@@ -3104,6 +4182,11 @@
         .label-trainers {
             background: rgba(99, 102, 241, 0.15);
             color: #818cf8;
+        }
+
+        .label-rooms {
+            background: rgba(6, 182, 212, 0.15);
+            color: #22d3ee;
         }
 
         .label-trainees {
@@ -3618,6 +4701,14 @@
 
         <!-- شارة الإصدار -->
         <div class="version-badge" id="versionBadge"></div>
+
+        <!-- زر تبديل الوضع - صفحة الرفع -->
+        <div class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع فاتح/غامق"
+            style="position: absolute; top: 20px; right: 20px;">
+            <div class="theme-toggle-knob" id="themeKnobUpload">
+                <i data-lucide="moon"></i>
+            </div>
+        </div>
     </div>
 
     <!-- شريط إشعار التحديث -->
@@ -3659,6 +4750,13 @@
                         <i data-lucide="help-circle" style="width: 18px; height: 18px;"></i>
                     </button>
 
+                    <!-- زر تبديل الوضع - الصفحة الرئيسية -->
+                    <div class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع فاتح/غامق">
+                        <div class="theme-toggle-knob" id="themeKnobMain">
+                            <i data-lucide="moon"></i>
+                        </div>
+                    </div>
+
                     <!-- مجموعة التبديل (متوسطة) -->
                     <div class="toggles-group">
                         <div class="toggle-container">
@@ -3673,29 +4771,58 @@
                             <div class="toggle" id="freeOnlySwitch" onclick="toggleFreeOnly()"></div>
                             <span class="toggle-label">المتاحين فقط</span>
                         </div>
+                        <div class="toggle-container">
+                            <div class="toggle active" id="showTrainersToggle" onclick="toggleTrainers()"></div>
+                            <span class="toggle-label">المدربين</span>
+                        </div>
+                        <div class="toggle-container">
+                            <div class="toggle" id="showRoomsToggle" onclick="toggleRooms()"></div>
+                            <span class="toggle-label">القاعات</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- النصف الأيسر: فراغات شعبة جديدة -->
                 <div class="section-row freetime-row">
                     <div class="section-input-group freetime-input-group">
-                        <span class="filter-section-label freetime-label">
-                            <i data-lucide="clock"
-                                style="width: 16px; height: 16px; vertical-align: middle; margin-left: 4px;"></i>
-                            فراغات شعبة جديدة
-                        </span>
                         <button class="freetime-search-btn" onclick="showAvailabilityPage()"
                             title="تحليل الفترات المتاحة لفتح شعبة جديدة">
+                            <span class="btn-inline-reset" id="freetimeResetBtn"
+                                onclick="event.stopPropagation(); resetSelectedPeriods()"
+                                title="إعادة تعيين الفترات">×</span>
                             <i data-lucide="search"></i>
                             <span>البحث عن موعد</span>
                         </button>
-                        <!-- زر إعادة تعيين الفترات المعتمدة -->
-                        <button class="freetime-reset-btn" id="freetimeResetBtn" onclick="resetSelectedPeriods()"
-                            title="إعادة تعيين الفترات المعتمدة" style="display: none;">
-                            <i data-lucide="x-circle"></i>
+                        <!-- زر المتدربين المحددين -->
+                        <button class="custom-trainees-btn" id="customTraineesBtn" onclick="toggleCustomTraineesPopup()"
+                            title="إضافة متدربين محددين بأرقامهم">
+                            <span class="btn-inline-reset" id="customTraineesResetBtn"
+                                onclick="event.stopPropagation(); clearCustomTrainees()" title="مسح المتدربين">×</span>
+                            <i data-lucide="user-plus"></i>
+                            <span>متدربين محددين</span>
+                            <span class="custom-trainees-badge" id="customTraineesBadge" style="display:none;"></span>
+                        </button>
+                        <!-- زر المدرب المحدد -->
+                        <button class="custom-trainer-btn" id="customTrainerBtn" onclick="toggleCustomTrainerPopup()"
+                            title="تحديد مدربين لعرض جداولهم">
+                            <span class="btn-inline-reset" id="customTrainerResetBtn"
+                                onclick="event.stopPropagation(); clearCustomTrainers()" title="مسح المدربين">×</span>
+                            <i data-lucide="user-check"></i>
+                            <span>مدرب محدد</span>
+                            <span class="custom-trainer-badge" id="customTrainerBadge" style="display:none;"></span>
+                        </button>
+                        <!-- زر القاعة المحددة -->
+                        <button class="custom-room-btn" id="customRoomBtn" onclick="toggleCustomRoomPopup()"
+                            title="تحديد قاعات لعرض جداولها">
+                            <span class="btn-inline-reset" id="customRoomResetBtn"
+                                onclick="event.stopPropagation(); clearCustomRooms()" title="مسح القاعات">×</span>
+                            <i data-lucide="building"></i>
+                            <span>قاعة محددة</span>
+                            <span class="custom-room-badge" id="customRoomBadge" style="display:none;"></span>
                         </button>
                     </div>
                 </div>
+
             </div>
 
             <!-- الصف المقسم: الشعب الظاهرة والمستهدفة -->
@@ -3738,7 +4865,7 @@
         <!-- منطقة الجداول -->
         <div class="tables-container">
             <!-- جدول المدربين -->
-            <div class="table-section">
+            <div class="table-section" id="trainersSection">
                 <div class="table-header">
                     <span class="table-icon"><i data-lucide="presentation"></i></span>
                     <span class="table-title">المدربين</span>
@@ -3881,6 +5008,31 @@
                 </div>
             </div>
 
+            <!-- جدول القاعات (مخفي افتراضياً) -->
+            <div class="table-section" id="roomsSection" style="display: none;">
+                <div class="table-header">
+                    <span class="table-icon"><i data-lucide="building-2"></i></span>
+                    <span class="table-title">القاعات</span>
+                    <span class="table-count">0 قاعة</span>
+                </div>
+
+                <div class="data-table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th class="col-id">#</th>
+                                <th class="col-name">القاعة</th>
+                                <th class="col-dept">المبنى</th>
+                                <th class="col-stat">السعة</th>
+                                <th class="col-stat text-contact">س.ا</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <!-- جدول المتدربين -->
             <div class="table-section">
                 <div class="table-header">
@@ -3889,7 +5041,12 @@
                     <span class="table-count">15 متدرب</span>
                 </div>
 
-                <div class="data-table-wrapper">
+                <div class="data-table-wrapper" style="position: relative;">
+                    <button class="copy-trainees-btn" id="copyTraineesBtn" onclick="copyVisibleTrainees()"
+                        title="نسخ بيانات المتدربين الظاهرين">
+                        <i data-lucide="clipboard-copy" style="width:14px;height:14px;"></i>
+                        <span>نسخ</span>
+                    </button>
                     <table class="data-table">
                         <thead>
                             <tr>
@@ -4254,6 +5411,51 @@
         let uploadedFiles = { ss01: null, sf01: null };
         let currentZone = null;
         let showFreeOnly = false; // إظهار المتدربين المتاحين فقط
+        let showRooms = false; // إظهار جدول القاعات
+        let showTrainers = true; // إظهار جدول المدربين
+
+        // ═══════════════════════════════════════════════════════════════
+        // إدارة الوضع (فاتح/غامق)
+        // ═══════════════════════════════════════════════════════════════
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('appTheme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('appTheme', newTheme);
+
+            // تحديث أيقونات الأزرار
+            updateThemeIcons(newTheme);
+
+            // إشعار
+            if (typeof showToast === 'function') {
+                showToast(newTheme === 'light' ? 'تم التبديل للوضع الفاتح ☀️' : 'تم التبديل للوضع الغامق 🌙', 'info');
+            }
+        }
+
+        function updateThemeIcons(theme) {
+            const iconName = theme === 'light' ? 'sun' : 'moon';
+            const knobs = document.querySelectorAll('.theme-toggle-knob');
+            knobs.forEach(knob => {
+                knob.innerHTML = `<i data-lucide="${iconName}"></i>`;
+            });
+            // إعادة تهيئة Lucide للأيقونات الجديدة
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        // تحديث الأيقونات عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            updateThemeIcons(currentTheme);
+        });
 
         // فلاتر الأعمدة
         let columnFilters = {
@@ -4276,7 +5478,8 @@
             showFreeOnly = !showFreeOnly;
             updateFreeOnlyUI();
 
-            // إعادة عرض الجدول
+            // إعادة عرض الجداول (المدربين والمتدربين)
+            renderTrainersTable();
             renderTraineesTable();
 
             // إشعار المستخدم
@@ -4285,7 +5488,14 @@
             } else {
                 showToast('عرض جميع المتدربين', 'info');
             }
-            console.log('showFreeOnly changed to:', showFreeOnly);
+        }
+
+        // تحديث حالة زر إعادة تعيين الفترات المعتمدة
+        function updateFreetimeResetButton() {
+            const btn = document.querySelector('.reset-periods-btn');
+            if (btn) {
+                btn.style.display = appliedFreetimePeriods.length > 0 ? 'inline-flex' : 'none';
+            }
         }
 
         function updateFreeOnlyUI() {
@@ -4296,6 +5506,12 @@
                 } else {
                     toggle.classList.remove('active');
                 }
+            }
+
+            // إظهار/إخفاء زر النسخ
+            const copyBtn = document.getElementById('copyTraineesBtn');
+            if (copyBtn) {
+                copyBtn.style.display = showFreeOnly ? 'inline-flex' : 'none';
             }
         }
 
@@ -4369,8 +5585,8 @@
 
         // عرض صفحة التحليل
         function showAvailabilityPage() {
-            if (visibleSections.length === 0) {
-                showToast('يرجى اختيار شعبة واحدة على الأقل', 'error');
+            if (visibleSections.length === 0 && customTraineeIds.length === 0 && customTrainerIds.length === 0) {
+                showToast('يرجى اختيار شعبة أو إضافة متدربين/مدربين محددين', 'error');
                 return;
             }
 
@@ -4521,10 +5737,12 @@
             let total = 0;
             let availableIds = []; // قائمة IDs المتاحين
 
-            // المتدربين من الشعب الظاهرة فقط
+            // المتدربين من الشعب الظاهرة + المتدربين المحددين
             let visibleTrainees = Object.values(trainees).filter(trainee => {
                 if (!trainee.registrations) return false;
-                return trainee.registrations.some(reg => visibleSections.includes(reg.refNum));
+                const inVisibleSection = trainee.registrations.some(reg => visibleSections.includes(reg.refNum));
+                const isCustom = customTraineeIds.includes(trainee.id);
+                return inVisibleSection || isCustom;
             });
 
             // إذا تم تمرير pool، التصفية منها فقط
@@ -4571,13 +5789,18 @@
             let total = 0;
             let availableIds = []; // قائمة IDs المتاحين
 
-            // المدربين من الشعب الظاهرة
+            // المدربين من الشعب الظاهرة + المدربين المحددين يدوياً
             let visibleTrainerIds = new Set();
             Object.values(sections).forEach(section => {
                 if (visibleSections.includes(section.refNumber) && section.trainerId) {
                     visibleTrainerIds.add(section.trainerId);
                 }
             });
+
+            // إضافة المدربين المحددين يدوياً
+            if (customTrainerIds && customTrainerIds.length > 0) {
+                customTrainerIds.forEach(id => visibleTrainerIds.add(id));
+            }
 
             // إذا تم تمرير pool، التصفية منها فقط
             if (pool !== null) {
@@ -4609,6 +5832,45 @@
             });
 
             return { available, total, availableIds };
+        }
+
+        // حساب توفر القاعات لفترة معينة
+        function calculateRoomAvailability(period, day) {
+            // تجميع القاعات الظاهرة
+            const visibleRooms = new Set();
+            Object.values(sections).forEach(section => {
+                if (visibleSections.includes(section.refNumber) && section.room) {
+                    visibleRooms.add(section.room);
+                }
+            });
+
+            // إضافة القاعات المحددة يدوياً
+            if (customRoomNames && customRoomNames.length > 0) {
+                customRoomNames.forEach(name => visibleRooms.add(name));
+            }
+
+            const total = visibleRooms.size;
+            if (total === 0) return { available: 0, total: 0 };
+
+            let available = 0;
+            visibleRooms.forEach(roomName => {
+                let hasConflict = false;
+                Object.values(sections).forEach(section => {
+                    if (section.room === roomName && section.sessions) {
+                        for (const session of section.sessions) {
+                            if (session.day === day && session.time) {
+                                if (isTimeConflict(session.time, period.start, period.end)) {
+                                    hasConflict = true;
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                });
+                if (!hasConflict) available++;
+            });
+
+            return { available, total };
         }
 
         // ═══════════════════════════════════════════════════════════════
@@ -4784,9 +6046,14 @@
                 bodyHtml += `<td class="day-cell">${day}</td>`;
 
                 // خلية التسميات (3 صفوف) - بنفس تنسيق خلايا الفترات
+                // تحقق: هل هناك قاعات ظاهرة؟
+                const hasVisibleRooms = Object.values(sections).some(s => visibleSections.includes(s.refNumber) && s.room) || (customRoomNames && customRoomNames.length > 0);
+                const roomsLabel = hasVisibleRooms ? '<div class="label-row label-rooms">القاعات المتاحة</div>' : '';
+
                 bodyHtml += `<td class="labels-cell">
                     <div class="labels-cell-content">
                         <div class="label-row label-trainers">المدربين المتاحين</div>
+                        ${roomsLabel}
                         <div class="label-row label-trainees">المتدربين المتاحين</div>
                         <div class="label-row label-percentage">نسبة المتدربين</div>
                     </div>
@@ -4797,6 +6064,7 @@
                     // استخدام الـ pool للحساب الديناميكي
                     const traineeData = calculateTraineeAvailability(period, day, filteredTraineePool);
                     const trainerData = calculateTrainerAvailability(period, day, filteredTrainerPool);
+                    const roomData = calculateRoomAvailability(period, day);
                     const percentage = traineeData.total > 0
                         ? Math.round((traineeData.available / traineeData.total) * 100)
                         : 0;
@@ -4806,6 +6074,9 @@
 
                     // تحديد إذا كان عدد المدربين المتاحين = 0
                     const noTrainersClass = trainerData.available === 0 ? 'no-trainers' : '';
+
+                    // تحديد إذا كان عدد القاعات المتاحة = 0
+                    const noRoomsClass = roomData.available === 0 && roomData.total > 0 ? 'no-rooms' : '';
 
                     // تحديد إذا كانت الخلية مختارة
                     const isSelected = selectedAvailabilityPeriods.some(
@@ -4818,10 +6089,16 @@
 
                     const groupNum = Math.ceil(period.index / 2);
 
+                    // إظهار القاعات فقط إذا كان هناك قاعات ظاهرة
+                    const roomsHtml = roomData.total > 0
+                        ? `<div class="cell-rooms ${noRoomsClass}">${roomData.available}/${roomData.total}</div>`
+                        : '';
+
                     bodyHtml += `<td class="period-group-${groupNum}">
                         <div class="availability-cell ${noAvailabilityClass} ${selectedClass} ${clickableClass}" 
                              onclick="toggleAvailabilityPeriod(${period.index}, '${day}')">
                             <div class="cell-trainers ${noTrainersClass}">${trainerData.available}/${trainerData.total}</div>
+                            ${roomsHtml}
                             <div class="cell-trainees">${traineeData.available}/${traineeData.total}</div>
                             <div class="cell-percentage">${percentage}%</div>
                         </div>
@@ -4867,9 +6144,235 @@
             }
         }
 
+        // ═══════════════════════════════════════════════════════════════
+        //  تبديل إظهار المدربين
+        // ═══════════════════════════════════════════════════════════════
+        function toggleTrainers() {
+            showTrainers = !showTrainers;
+            updateTrainersUI();
+            renderTrainersTable();
+
+            if (showTrainers) {
+                showToast('إظهار جدول المدربين', 'success');
+            } else {
+                showToast('إخفاء جدول المدربين', 'info');
+            }
+        }
+
+        function updateTrainersUI() {
+            const toggle = document.getElementById('showTrainersToggle');
+            if (toggle) {
+                toggle.classList.toggle('active', showTrainers);
+            }
+
+            const trainersSection = document.getElementById('trainersSection');
+            if (trainersSection) {
+                trainersSection.style.display = showTrainers ? '' : 'none';
+            }
+
+            const tablesContainer = document.querySelector('.tables-container');
+            if (tablesContainer) {
+                tablesContainer.classList.toggle('trainers-hidden', !showTrainers);
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        //  تبديل إظهار القاعات
+        // ═══════════════════════════════════════════════════════════════
+        function toggleRooms() {
+            showRooms = !showRooms;
+            updateRoomsUI();
+            renderRoomsTable();
+
+            if (showRooms) {
+                showToast('إظهار جدول القاعات', 'success');
+            } else {
+                showToast('إخفاء جدول القاعات', 'info');
+            }
+        }
+
+        function updateRoomsUI() {
+            const toggle = document.getElementById('showRoomsToggle');
+            if (toggle) {
+                toggle.classList.toggle('active', showRooms);
+            }
+
+            // تبديل كلاس التوزيع الديناميكي للجداول
+            const tablesContainer = document.querySelector('.tables-container');
+            if (tablesContainer) {
+                tablesContainer.classList.toggle('rooms-visible', showRooms);
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        //  الحصول على جدول القاعة
+        // ═══════════════════════════════════════════════════════════════
+        function getRoomSchedule(roomName) {
+            const schedule = {};
+            DAYS.forEach(day => schedule[day] = {});
+
+            let totalMinutes = 0;
+            let capacity = 0;
+            let building = '';
+
+            Object.keys(sections).forEach(refNum => {
+                const section = sections[refNum];
+                if (!section || section.room !== roomName) return;
+
+                // أخذ أكبر سعة ومبنى من أي شعبة تستخدم هذه القاعة
+                if (section.capacity > capacity) capacity = section.capacity;
+                if (section.building && !building) building = section.building;
+
+                section.sessions.forEach(session => {
+                    if (!session.time) return;
+
+                    const [endStr, startStr] = session.time.split(' - ');
+                    const start = parseTimeString(startStr);
+                    const end = parseTimeString(endStr);
+                    totalMinutes += (end - start);
+
+                    if (!schedule[session.day]) schedule[session.day] = {};
+
+                    schedule[session.day][session.time] = {
+                        refNumber: refNum,
+                        courseCode: section.courseCode,
+                        courseName: section.courseName,
+                        trainerName: section.trainerName,
+                        scheduleType: section.scheduleType,
+                        room: section.room
+                    };
+                });
+            });
+
+            const totalContactHours = Math.round((totalMinutes / 50) * 10) / 10;
+
+            return {
+                schedule,
+                totalContactHours,
+                capacity,
+                building
+            };
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        //  عرض جدول القاعات
+        // ═══════════════════════════════════════════════════════════════
+        function renderRoomsTable() {
+            const roomsSection = document.getElementById('roomsSection');
+            if (!roomsSection) return;
+
+            // إظهار/إخفاء
+            roomsSection.style.display = showRooms ? '' : 'none';
+            if (!showRooms) return;
+
+            const tbody = roomsSection.querySelector('.data-table tbody');
+            if (!tbody) return;
+
+            tbody.innerHTML = '';
+
+            if (visibleSections.length === 0 && customRoomNames.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="10" class="empty-table-message">
+                            <i data-lucide="search"></i>
+                            اختر شعبة لإظهار البيانات
+                        </td>
+                    </tr>`;
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+                return;
+            }
+
+            // تجميع القاعات الفريدة حسب ترتيب الشعب الظاهرة
+            const roomsInOrder = [];
+            const roomsSet = new Set();
+
+            visibleSections.forEach(refNum => {
+                const section = sections[refNum];
+                if (!section || !section.room) return;
+                if (!roomsSet.has(section.room)) {
+                    roomsSet.add(section.room);
+                    roomsInOrder.push(section.room);
+                }
+            });
+
+            // إضافة القاعات المحددة يدوياً
+            customRoomNames.forEach(roomName => {
+                if (!roomsSet.has(roomName)) {
+                    roomsSet.add(roomName);
+                    roomsInOrder.push(roomName);
+                }
+            });
+
+            if (roomsInOrder.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="10" class="empty-table-message">
+                            <i data-lucide="building-2"></i>
+                            لا توجد بيانات قاعات
+                        </td>
+                    </tr>`;
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+
+                // تحديث العداد
+                const countEl = roomsSection.querySelector('.table-count');
+                if (countEl) countEl.textContent = '0 قاعة';
+                return;
+            }
+
+            // حساب الفراغات المشتركة مرة واحدة
+            const cachedFreeSlots = calculateSharedFreeSlots();
+            let index = 1;
+
+            roomsInOrder.forEach(roomName => {
+                const scheduleData = getRoomSchedule(roomName);
+                const row = document.createElement('tr');
+                const isCustom = customRoomNames.includes(roomName);
+                if (isCustom) row.classList.add('custom-room-row');
+
+                const removeBtn = isCustom ? `<button class="custom-trainee-remove" onclick="event.stopPropagation(); removeCustomRoom('${roomName.replace(/'/g, "\\'")}')"
+                    title="إزالة من القاعات المحددة">×</button>` : '';
+
+                let cells = `
+                    <td class="col-id">${index}</td>
+                    <td class="col-name" title="${roomName}">${removeBtn}${roomName}</td>
+                    <td class="col-dept" title="${scheduleData.building}">${scheduleData.building}</td>
+                    <td class="col-stat">${scheduleData.capacity || '-'}</td>
+                    <td class="col-stat text-contact">${scheduleData.totalContactHours}</td>
+                `;
+
+                // إضافة خلايا Timeline للأيام
+                DAYS.forEach(day => {
+                    const daySessions = [];
+                    Object.entries(scheduleData.schedule[day] || {}).forEach(([time, data]) => {
+                        daySessions.push({
+                            time,
+                            refNumber: data.refNumber,
+                            courseCode: data.courseCode,
+                            courseName: data.courseName,
+                            trainerName: data.trainerName,
+                            scheduleType: data.scheduleType,
+                            room: data.room
+                        });
+                    });
+                    cells += createTimelineCell(daySessions, targetSections, false, day, cachedFreeSlots);
+                });
+
+                row.innerHTML = cells;
+                tbody.appendChild(row);
+                index++;
+            });
+
+            // تحديث العداد
+            const countEl = roomsSection.querySelector('.table-count');
+            if (countEl) countEl.textContent = `${roomsInOrder.length} قاعة`;
+
+            // تفعيل Lucide
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
         // حساب الفراغات المشتركة لجميع المتدربين والمدربين (من الشعب الظاهرة)
         function calculateSharedFreeSlots() {
-            if (visibleSections.length === 0) return {};
+            if (visibleSections.length === 0 && customTraineeIds.length === 0) return {};
 
             // تجميع جميع المحاضرات لكل يوم
             const allBusySlots = {};
@@ -4877,9 +6380,10 @@
 
             // جمع محاضرات المتدربين من الشعب الظاهرة
             Object.values(trainees).forEach(trainee => {
-                // تحقق من أن المتدرب مسجل في إحدى الشعب الظاهرة
+                // تحقق من أن المتدرب مسجل في إحدى الشعب الظاهرة أو محدد يدوياً
                 const hasVisibleSection = trainee.registrations.some(r => visibleSections.includes(r.refNum));
-                if (!hasVisibleSection) return;
+                const isCustom = customTraineeIds.includes(trainee.id);
+                if (!hasVisibleSection && !isCustom) return;
 
                 const schedule = getTraineeSchedule(trainee.id);
                 DAYS.forEach(day => {
@@ -4981,8 +6485,8 @@
         // ═══════════════════════════════════════════════════════════════
         //  نظام تتبع الإصدار
         // ═══════════════════════════════════════════════════════════════
-        const APP_VERSION = '1.0.3';
-        const APP_VERSION_DATE = '20 يناير 2026';
+        const APP_VERSION = '1.1.0';
+        const APP_VERSION_DATE = '04 مارس 2026';
         const VERSION_STORAGE_KEY = 'collegesec_app_version';
 
         // عرض شارة الإصدار
@@ -5430,16 +6934,6 @@
                     mainPageEl.style.display = 'flex';
                     mainPageEl.scrollIntoView();
 
-                    // تشغيل الجولة التفاعلية عند أول استخدام
-                    alert('✅ وصلت لهذه النقطة - سيبدأ التور الآن!');
-                    const tourCompleted = localStorage.getItem('tourCompleted');
-                    console.log('🎯 Tour check:', tourCompleted ? 'مكتمل' : 'لم يتم');
-                    if (!tourCompleted) {
-                        setTimeout(() => {
-                            console.log('🚀 بدء الجولة التفاعلية...');
-                            startTour();
-                        }, 500);
-                    }
                 } else {
                     console.error('Elements missing:', { uploadPageEl, mainPageEl });
                     showToast('حدث خطأ في عرض الصفحة الرئيسية', 'error');
@@ -5523,6 +7017,16 @@
         // الشعب المستهدفة
         let targetSections = [];  // أرقام الشعب المستهدفة
 
+        // المتدربين المحددين يدوياً
+        let customTraineeIds = [];  // أرقام المتدربين المحددين
+
+        // المدربين المحددين يدوياً
+        let customTrainerIds = [];       // أرقام المدربين المحددين
+        let pendingTrainerIds = [];      // أرقام مؤقتة داخل المنبثقة قبل الاعتماد
+
+        // القاعات المحددة يدوياً
+        let customRoomNames = [];        // أسماء القاعات المحددة
+
         // النطاق الزمني الديناميكي
         let timeRangeStart = 0;  // بالدقائق من منتصف الليل
         let timeRangeEnd = 0;    // بالدقائق من منتصف الليل
@@ -5589,6 +7093,43 @@
             console.log(`⏰ النطاق الزمني: ${Math.floor(timeRangeStart / 60)}:${timeRangeStart % 60} - ${Math.floor(timeRangeEnd / 60)}:${timeRangeEnd % 60}`);
         }
 
+        // ═══════════════════════════════════════════════════════════════
+        //  ألوان مميزة لكل شعبة ظاهرة ومستهدفة
+        // ═══════════════════════════════════════════════════════════════
+        const VISIBLE_SECTION_COLORS = [
+            '#60a5fa', // أزرق فاتح
+            '#34d399', // أخضر زمردي
+            '#a78bfa', // بنفسجي
+            '#22d3ee', // سماوي
+            '#f472b6', // وردي
+            '#fb923c', // برتقالي
+            '#facc15', // أصفر
+            '#4ade80', // أخضر فاتح
+        ];
+
+        const TARGET_SECTION_COLORS = [
+            '#fbbf24', // ذهبي (الأصلي)
+            '#fb923c', // برتقالي
+            '#f472b6', // وردي
+            '#a78bfa', // بنفسجي
+            '#34d399', // أخضر زمردي
+            '#38bdf8', // أزرق سماوي
+            '#f87171', // أحمر فاتح
+            '#facc15', // أصفر
+        ];
+
+        function getVisibleSectionColor(refNum) {
+            const idx = visibleSections.indexOf(refNum);
+            if (idx === -1) return '#60a5fa';
+            return VISIBLE_SECTION_COLORS[idx % VISIBLE_SECTION_COLORS.length];
+        }
+
+        function getTargetSectionColor(refNum) {
+            const idx = targetSections.indexOf(refNum);
+            if (idx === -1) return '#fbbf24';
+            return TARGET_SECTION_COLORS[idx % TARGET_SECTION_COLORS.length];
+        }
+
         // تحويل وقت لنسبة مئوية من عرض الخلية
         function timeToPercent(timeStr) {
             const mins = parseTimeString(timeStr);
@@ -5603,7 +7144,7 @@
         }
 
         // إنشاء خلية Timeline ليوم معين
-        function createTimelineCell(daySessions, targetSectionsList = [], showTargetSlots = false, currentDay = null) {
+        function createTimelineCell(daySessions, targetSectionsList = [], showTargetSlots = false, currentDay = null, cachedFreeSlots = null) {
             let bars = '';
             let targetSlots = '';
 
@@ -5644,8 +7185,13 @@
                         `👥 المتدربين: ${enrolledCount}`
                     ].filter(Boolean).join('\n');
 
+                    // بناء الأنماط السطرية للألوان المميزة
+                    let inlineColors = '';
+                    if (isVisible) inlineColors += `--vis-color: ${getVisibleSectionColor(session.refNumber)};`;
+                    if (isTarget) inlineColors += `--tgt-color: ${getTargetSectionColor(session.refNumber)};`;
+
                     bars += `<div class="session-bar ${type}${targetClass}${visibleClass}" 
-                        style="right: ${left}%; width: ${width}%;"
+                        style="right: ${left}%; width: ${width}%;${inlineColors}"
                         title="${tooltipLines}"
                         data-ref="${session.refNumber}">
                         ${session.courseCode || ''}
@@ -5682,8 +7228,10 @@
                             `⚠️ تعارض - ${section.courseCode} (${refNum})` :
                             `✅ متاح - ${section.courseCode} (${refNum})`;
 
+                        const tgtColor = getTargetSectionColor(refNum);
+
                         targetSlots += `<div class="target-slot ${conflictClass}" 
-                            style="right: ${left}%; width: ${width}%;"
+                            style="right: ${left}%; width: ${width}%;--tgt-color: ${tgtColor};"
                             title="${tooltipText}"
                             data-ref="${refNum}">
                         </div>`;
@@ -5693,8 +7241,8 @@
 
             // إضافة صناديق الفراغات المشتركة (أخضر متوهج)
             let freeSlotsHtml = '';
-            if (showFreeSlots && currentDay && visibleSections.length > 0) {
-                const sharedFreeSlots = calculateSharedFreeSlots();
+            if (showFreeSlots && currentDay && (visibleSections.length > 0 || customTraineeIds.length > 0)) {
+                const sharedFreeSlots = cachedFreeSlots || calculateSharedFreeSlots();
                 const dayFreeSlots = sharedFreeSlots[currentDay] || [];
 
                 dayFreeSlots.forEach(slot => {
@@ -5763,7 +7311,7 @@
             }
 
             // تحديد كلاس اليوم
-            const dayMap = { 'الأحد': 'day-sun', 'الإثنين': 'day-mon', 'الثلاثاء': 'day-tue', 'الأربعاء': 'day-wed', 'الخميس': 'day-thu' };
+            const dayMap = { 'الأحد': 'day-sun', 'الاثنين': 'day-mon', 'الثلاثاء': 'day-tue', 'الأربعاء': 'day-wed', 'الخميس': 'day-thu' };
             const dayClass = (currentDay && dayMap[currentDay]) ? dayMap[currentDay] : '';
 
             return `<td class="day-column ${dayClass}"><div class="day-cell">${freeSlotsHtml}${freetimePeriodHtml}${targetSlots}${bars}</div></td>`;
@@ -6091,7 +7639,7 @@
             const freeSlots = {};
 
             DAYS.forEach(day => {
-                freeSlots[day] = TIME_SLOTS.filter(slot =>
+                freeSlots[day] = sortedTimeSlots.filter(slot =>
                     !schedule[day] || !schedule[day][slot]
                 );
             });
@@ -6164,10 +7712,8 @@
 
                 // بدء الجولة التفاعلية عند أول استخدام
                 const tourCompleted = localStorage.getItem('tourCompleted');
-                console.log('🎯 Tour check:', tourCompleted ? 'مكتمل' : 'لم يتم');
                 if (!tourCompleted) {
                     setTimeout(() => {
-                        console.log('🚀 بدء الجولة التفاعلية...');
                         startTour();
                     }, 800);
                 }
@@ -6214,6 +7760,7 @@
         function renderAllData() {
             updateTableHeaders();
             renderTrainersTable();
+            renderRoomsTable();
             renderTraineesTable();
             populateMultiSelectLists(); // تصحيح اسم الدالة
             updateCounts();
@@ -6221,7 +7768,7 @@
 
         // تحديث العدادات
         function updateCounts() {
-            const trainersCount = document.querySelector('.table-section:first-child .table-count');
+            const trainersCount = document.querySelector('#trainersSection .table-count');
             const traineesCount = document.querySelector('.table-section:last-child .table-count');
 
             if (trainersCount) {
@@ -6243,51 +7790,69 @@
                 const thead = table.querySelector('thead');
                 if (!thead) return;
 
-                const isTrainersTable = table.closest('.table-section')?.querySelector('.table-title')?.textContent?.includes('المدربين');
+                const tableSection = table.closest('.table-section');
+                const titleEl = tableSection?.querySelector('.table-title');
+                const titleText = titleEl?.textContent || '';
+
+                const isTrainersTable = titleText.includes('المدربين');
+                const isRoomsTable = tableSection?.id === 'roomsSection';
+                const isTraineesTable = !isTrainersTable && !isRoomsTable;
 
                 // إضافة كلاس مميز للرأس
-                thead.classList.remove('trainer-header', 'trainee-header');
-                thead.classList.add(isTrainersTable ? 'trainer-header' : 'trainee-header');
+                thead.classList.remove('trainer-header', 'trainee-header', 'room-header');
+                if (isTrainersTable) thead.classList.add('trainer-header');
+                else if (isRoomsTable) thead.classList.add('room-header');
+                else thead.classList.add('trainee-header');
 
-                // تحديد نوع الجدول والأعمدة القابلة للفلترة
-                const type = isTrainersTable ? 'trainer' : 'trainee';
-                const nameCol = isTrainersTable ? 'المدرب' : 'المتدرب';
-                const deptCol = isTrainersTable ? 'القسم' : 'التخصص';
+                let headerRow = '';
 
-                // صف واحد فقط بـ 5 أعمدة للأيام
-                let headerRow = `<tr>
-                    <th class="col-id">#</th>
-                    
-                    <!-- عمود الاسم مع فلتر -->
-                    <th class="col-name">
-                        <div class="th-filter-wrapper">
-                            <span>${nameCol}</span>
-                            <button id="btn-filter-${type}-name"
-                                    class="column-filter-btn ${columnFilters[type].name.length > 0 ? 'active' : ''}" 
-                                    onclick="toggleColumnFilter(event, '${type}', 'name')">
-                                <i data-lucide="filter"></i>
-                            </button>
-                        </div>
-                    </th>
+                if (isRoomsTable) {
+                    // رأس جدول القاعات (بدون فلاتر)
+                    headerRow = `<tr>
+                        <th class="col-id">#</th>
+                        <th class="col-name">القاعة</th>
+                        <th class="col-dept">المبنى</th>
+                        <th class="col-stat">السعة</th>
+                        <th class="col-stat text-contact">س.ا</th>`;
+                } else {
+                    // رأس جدول المدربين أو المتدربين (مع فلاتر)
+                    const type = isTrainersTable ? 'trainer' : 'trainee';
+                    const nameCol = isTrainersTable ? 'المدرب' : 'المتدرب';
+                    const deptCol = isTrainersTable ? 'القسم' : 'التخصص';
 
-                    <!-- عمود القسم/التخصص مع فلتر -->
-                    <th class="col-dept">
-                         <div class="th-filter-wrapper">
-                            <span>${deptCol}</span>
-                             <button id="btn-filter-${type}-${isTrainersTable ? 'dept' : 'major'}"
-                                    class="column-filter-btn ${columnFilters[type].dept ? (columnFilters[type].dept.length > 0 ? 'active' : '') : (columnFilters[type].major.length > 0 ? 'active' : '')}" 
-                                    onclick="toggleColumnFilter(event, '${type}', '${isTrainersTable ? 'dept' : 'major'}')">
-                                <i data-lucide="filter"></i>
-                            </button>
-                        </div>
-                    </th>
+                    headerRow = `<tr>
+                        <th class="col-id">#</th>
+                        
+                        <!-- عمود الاسم مع فلتر -->
+                        <th class="col-name">
+                            <div class="th-filter-wrapper">
+                                <span>${nameCol}</span>
+                                <button id="btn-filter-${type}-name"
+                                        class="column-filter-btn ${columnFilters[type].name.length > 0 ? 'active' : ''}" 
+                                        onclick="toggleColumnFilter(event, '${type}', 'name')">
+                                    <i data-lucide="filter"></i>
+                                </button>
+                            </div>
+                        </th>
 
-                    ${isTrainersTable ?
-                        '<th class="col-stat text-contact">اتصال</th><th class="col-stat text-quota">النصاب</th>' :
-                        '<th class="col-stat text-contact">الرقم</th><th class="col-stat text-credits">س. م.</th>'}`;
+                        <!-- عمود القسم/التخصص مع فلتر -->
+                        <th class="col-dept">
+                             <div class="th-filter-wrapper">
+                                <span>${deptCol}</span>
+                                 <button id="btn-filter-${type}-${isTrainersTable ? 'dept' : 'major'}"
+                                        class="column-filter-btn ${columnFilters[type].dept ? (columnFilters[type].dept.length > 0 ? 'active' : '') : (columnFilters[type].major.length > 0 ? 'active' : '')}" 
+                                        onclick="toggleColumnFilter(event, '${type}', '${isTrainersTable ? 'dept' : 'major'}')">
+                                    <i data-lucide="filter"></i>
+                                </button>
+                            </div>
+                        </th>
+
+                        ${isTrainersTable ?
+                            '<th class="col-stat text-contact">اتصال</th><th class="col-stat text-quota">النصاب</th>' :
+                            '<th class="col-stat text-contact">الرقم</th><th class="col-stat text-credits">س. م.</th>'}`;
+                }
 
                 DAYS.forEach((day, idx) => {
-                    // إضافة كلاس اليوم المناسب للرأس
                     headerRow += `<th class="day-header day-column ${dayMap[idx] || ''}">${day}</th>`;
                 });
                 headerRow += '</tr>';
@@ -6747,7 +8312,13 @@
 
         // عرض جدول المدربين (Timeline)
         function renderTrainersTable() {
-            const tbody = document.querySelector('.table-section:first-child .data-table tbody');
+            const trainersSection = document.getElementById('trainersSection');
+            if (trainersSection) {
+                trainersSection.style.display = showTrainers ? '' : 'none';
+            }
+            if (!showTrainers) return;
+
+            const tbody = document.querySelector('#trainersSection .data-table tbody');
             if (!tbody) {
                 console.error('لم يتم العثور على جدول المدربين');
                 return;
@@ -6756,8 +8327,8 @@
             tbody.innerHTML = '';
             let index = 1;
 
-            // إذا لم يتم اختيار شعبة، إظهار رسالة
-            if (visibleSections.length === 0) {
+            // إذا لم يتم اختيار شعبة ولا مدربين محددين، إظهار رسالة
+            if (visibleSections.length === 0 && customTrainerIds.length === 0) {
                 tbody.innerHTML = `
                     <tr>
                         <td colspan="10" class="empty-table-message">
@@ -6772,10 +8343,12 @@
             // تصفية وترتيب المدربين
             let filteredTrainers = Object.values(trainers);
 
-            // 1. فلترة بناءً على الشعب الظاهرة
-            if (visibleSections.length > 0) {
+            // 1. فلترة بناءً على الشعب الظاهرة + المدربين المحددين
+            if (visibleSections.length > 0 || customTrainerIds.length > 0) {
                 filteredTrainers = filteredTrainers.filter(trainer => {
-                    return trainer.sections.some(refNum => visibleSections.includes(refNum));
+                    const inVisibleSection = trainer.sections.some(refNum => visibleSections.includes(refNum));
+                    const isCustomTrainer = customTrainerIds.includes(trainer.id);
+                    return inVisibleSection || isCustomTrainer;
                 });
             }
 
@@ -6826,9 +8399,14 @@
                 return schedB.totalContactHours - schedA.totalContactHours;
             });
 
+            // حساب الفراغات المشتركة مرة واحدة قبل الحلقة
+            const cachedFreeSlots = (visibleSections.length > 0) ? calculateSharedFreeSlots() : null;
+
             sortedTrainers.forEach(trainer => {
                 const scheduleData = getTrainerSchedule(trainer.id);
                 const row = document.createElement('tr');
+                const isCustom = customTrainerIds.includes(trainer.id);
+                if (isCustom) row.classList.add('custom-trainer-row');
 
                 // الحصول على أقسام المدرب الفريدة من الشعب التي يدرسها
                 const trainerDepts = [...new Set(
@@ -6836,9 +8414,10 @@
                 )].join(' / ');
 
                 // بناء خلايا الجدول الأساسية
+                const removeBtn = isCustom ? `<button class="custom-trainee-remove" onclick="event.stopPropagation(); removeCustomTrainer('${trainer.id}')" title="إزالة من المحددين">×</button>` : '';
                 let cells = `
                     <td class="col-id">${index}</td>
-                    <td class="col-name trainer-name" title="${trainer.name}">${trainer.name}</td>
+                    <td class="col-name trainer-name" title="${trainer.name}">${removeBtn}${trainer.name}</td>
                     <td class="col-dept" title="${trainerDepts}">${trainerDepts}</td>
                     <td class="col-stat text-contact">${scheduleData.totalContactHours}</td>
                     <td class="col-stat text-quota">${scheduleData.totalQuota}</td>
@@ -6858,7 +8437,7 @@
                             room: data.room
                         });
                     });
-                    cells += createTimelineCell(daySessions, targetSections, false, day);
+                    cells += createTimelineCell(daySessions, targetSections, false, day, cachedFreeSlots);
                 });
 
                 row.innerHTML = cells;
@@ -6880,8 +8459,8 @@
             tbody.innerHTML = '';
             let index = 1;
 
-            // إذا لم يتم اختيار شعبة، إظهار رسالة
-            if (visibleSections.length === 0) {
+            // إذا لم يتم اختيار شعبة ولا متدربين محددين، إظهار رسالة
+            if (visibleSections.length === 0 && customTraineeIds.length === 0) {
                 tbody.innerHTML = `
                     <tr>
                         <td colspan="10" class="empty-table-message">
@@ -6893,13 +8472,15 @@
                 return;
             }
 
-            // تصفية المتدربين بناءً على الشعب الظاهرة
+            // تصفية المتدربين بناءً على الشعب الظاهرة + المتدربين المحددين
             let filteredTrainees = Object.values(trainees);
 
-            // 1. فلترة بناءً على الشعب الظاهرة
-            if (visibleSections.length > 0) {
+            // 1. فلترة بناءً على الشعب الظاهرة + المتدربين المحددين
+            if (visibleSections.length > 0 || customTraineeIds.length > 0) {
                 filteredTrainees = filteredTrainees.filter(trainee => {
-                    return trainee.registrations.some(r => visibleSections.includes(r.refNum));
+                    const inVisibleSection = trainee.registrations.some(r => visibleSections.includes(r.refNum));
+                    const isCustomTrainee = customTraineeIds.includes(trainee.id);
+                    return inVisibleSection || isCustomTrainee;
                 });
             }
 
@@ -6966,9 +8547,34 @@
                 return false; // لا يوجد تعارض
             }
 
+            // التحقق من تعارض متدرب مع شعبة مستهدفة محددة
+            function hasConflictWithSpecificTarget(trainee, targetRefNum) {
+                const schedule = getTraineeSchedule(trainee.id);
+                const targetSection = sections[targetRefNum];
+                if (!targetSection) return false;
+
+                for (const targetSession of targetSection.sessions) {
+                    if (!targetSession.time || !targetSession.day) continue;
+                    const [targetEnd, targetStart] = targetSession.time.split(' - ');
+
+                    const daySchedule = schedule.schedule[targetSession.day] || {};
+                    for (const [time, data] of Object.entries(daySchedule)) {
+                        if (data.refNumber === targetRefNum) continue;
+                        const [sEnd, sStart] = time.split(' - ');
+                        if (!(targetEnd <= sStart || targetStart >= sEnd)) {
+                            return true; // يوجد تعارض مع هذه الشعبة
+                        }
+                    }
+                }
+                return false;
+            }
+
             // فلترة المتدربين المتاحين فقط إذا كان الخيار مفعلاً
+            // المنطق: إظهار المتدرب إذا كان متاحاً لأي شعبة مستهدفة (وليس جميعها)
             if (showFreeOnly && targetSections.length > 0) {
-                filteredTrainees = filteredTrainees.filter(trainee => !hasConflictWithTarget(trainee));
+                filteredTrainees = filteredTrainees.filter(trainee =>
+                    targetSections.some(refNum => !hasConflictWithSpecificTarget(trainee, refNum))
+                );
             }
 
             // فلترة المتدربين المتاحين للفترات المعتمدة
@@ -7005,6 +8611,9 @@
             // هل يوجد شعب مستهدفة؟
             const showTargetSlots = targetSections.length > 0;
 
+            // حساب الفراغات المشتركة مرة واحدة قبل الحلقة
+            const cachedFreeSlots = (visibleSections.length > 0 || customTraineeIds.length > 0) ? calculateSharedFreeSlots() : null;
+
             // ═══════════════════════════════════════════════════════════
             // عرض مع دمج المتطابقين
             // ═══════════════════════════════════════════════════════════
@@ -7029,6 +8638,11 @@
                     // إضافة class للمجموعات المتعددة
                     if (group.trainees.length > 1) {
                         row.classList.add('merged-group');
+                    }
+
+                    // تمييز المتدربين المحددين
+                    if (group.trainees.some(t => customTraineeIds.includes(t.id))) {
+                        row.classList.add('custom-trainee-row');
                     }
 
                     // قائمة المتدربين للـ tooltip (رقم | ID | اسم)
@@ -7066,7 +8680,7 @@
                                 room: data.room
                             });
                         });
-                        cells += createTimelineCell(daySessions, targetSections, showTargetSlots, day);
+                        cells += createTimelineCell(daySessions, targetSections, showTargetSlots, day, cachedFreeSlots);
                     });
 
                     row.innerHTML = cells;
@@ -7097,10 +8711,17 @@
                         row.classList.add('available-row');
                     }
 
+                    // تمييز المتدربين المحددين
+                    if (customTraineeIds.includes(trainee.id)) {
+                        row.classList.add('custom-trainee-row');
+                    }
+
                     // بناء خلايا الجدول الأساسية
+                    const isCustom = customTraineeIds.includes(trainee.id);
+                    const removeBtn = isCustom ? `<button class="custom-trainee-remove" onclick="event.stopPropagation(); removeCustomTrainee('${trainee.id}')" title="إزالة من المحددين">×</button>` : '';
                     let cells = `
                         <td class="col-id">${index}</td>
-                        <td class="col-name trainee-name" title="${trainee.name}\n${trainee.phone || ''}">${trainee.name}</td>
+                        <td class="col-name trainee-name" title="${trainee.name}\n${trainee.phone || ''}">${removeBtn}${trainee.name}</td>
                         <td class="col-dept" title="${trainee.major || ''}">${trainee.major || ''}</td>
                         <td class="col-stat text-contact trainee-id-cell" style="font-size: 0.65rem; cursor: pointer;" data-copy="${trainee.id}" title="انقر مرتين للنسخ">${trainee.id}</td>
                         <td class="col-stat text-credits">${scheduleData.totalCreditHours}</td>
@@ -7121,7 +8742,7 @@
                                 room: data.room
                             });
                         });
-                        cells += createTimelineCell(daySessions, targetSections, showTargetSlots, day);
+                        cells += createTimelineCell(daySessions, targetSections, showTargetSlots, day, cachedFreeSlots);
                     });
 
                     row.innerHTML = cells;
@@ -7132,6 +8753,504 @@
                 console.log(`✅ تم عرض ${displayTrainees.length} متدرب (Timeline)`);
             }
         }
+        // ═══════════════════════════════════════════════════════════════
+        //  المتدربين المحددين
+        // ═══════════════════════════════════════════════════════════════
+
+        // استخراج الأرقام من نص مختلط (أسماء + أرقام)
+        function parseTraineeIdsFromText(text) {
+            if (!text || !text.trim()) return [];
+            // استخراج كل الأرقام التي تكون 4 أرقام أو أكثر (أرقام المتدربين)
+            const matches = text.match(/\b\d{4,}\b/g);
+            if (!matches) return [];
+            // إزالة التكرار
+            return [...new Set(matches)];
+        }
+
+        // فتح/إغلاق نافذة المتدربين المحددين
+        function toggleCustomTraineesPopup() {
+            const overlay = document.getElementById('customTraineesOverlay');
+            if (!overlay) return;
+
+            if (overlay.style.display === 'none') {
+                overlay.style.display = 'flex';
+                const textarea = document.getElementById('customTraineesInput');
+                if (textarea) {
+                    // إذا كان هناك متدربين محددين مسبقاً، عرضهم
+                    if (customTraineeIds.length > 0) {
+                        textarea.value = customTraineeIds.join('\n');
+                        previewCustomTrainees();
+                    }
+                    setTimeout(() => textarea.focus(), 100);
+                }
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        // إغلاق النافذة
+        function closeCustomTraineesPopup(event) {
+            // إذا تم النقر على overlay مباشرة (وليس على popup)
+            if (event && event.target !== event.currentTarget) return;
+            const overlay = document.getElementById('customTraineesOverlay');
+            if (overlay) overlay.style.display = 'none';
+        }
+
+        // معاينة المتدربين أثناء الكتابة
+        function previewCustomTrainees() {
+            const textarea = document.getElementById('customTraineesInput');
+            const statsEl = document.getElementById('customTraineesStats');
+            const foundEl = document.getElementById('statFound');
+            const notFoundEl = document.getElementById('statNotFound');
+            const applyBtn = document.getElementById('btnApplyTrainees');
+
+            if (!textarea || !statsEl) return;
+
+            const ids = parseTraineeIdsFromText(textarea.value);
+
+            if (ids.length === 0) {
+                statsEl.style.display = 'none';
+                if (applyBtn) applyBtn.disabled = true;
+                return;
+            }
+
+            // فحص كل رقم في بيانات المتدربين
+            let foundCount = 0;
+            let notFoundCount = 0;
+
+            ids.forEach(id => {
+                if (trainees[id]) {
+                    foundCount++;
+                } else {
+                    notFoundCount++;
+                }
+            });
+
+            statsEl.style.display = 'flex';
+            foundEl.textContent = `✅ تم العثور على: ${foundCount} متدرب`;
+            notFoundEl.textContent = notFoundCount > 0 ? `❌ غير موجودين: ${notFoundCount}` : '';
+
+            if (applyBtn) applyBtn.disabled = foundCount === 0;
+        }
+
+        // اعتماد قائمة المتدربين المحددين
+        function applyCustomTrainees() {
+            const textarea = document.getElementById('customTraineesInput');
+            if (!textarea) return;
+
+            const ids = parseTraineeIdsFromText(textarea.value);
+            // فقط الأرقام الموجودة في البيانات
+            customTraineeIds = ids.filter(id => trainees[id]);
+
+            if (customTraineeIds.length === 0) {
+                showToast('لم يتم العثور على أي متدرب', 'error');
+                return;
+            }
+
+            // إغلاق النافذة
+            const overlay = document.getElementById('customTraineesOverlay');
+            if (overlay) overlay.style.display = 'none';
+
+            // إظهار زر المسح
+            const resetBtn = document.getElementById('customTraineesResetBtn');
+            if (resetBtn) resetBtn.style.display = 'flex';
+
+            // تحديث الشرائح والجدول
+            updateCustomTraineesBadge();
+            renderAllData();
+            showToast(`تمت إضافة ${customTraineeIds.length} متدرب`, 'success');
+        }
+
+        // مسح جميع المتدربين المحددين
+        function clearCustomTrainees() {
+            customTraineeIds = [];
+
+            // إخفاء زر المسح
+            const resetBtn = document.getElementById('customTraineesResetBtn');
+            if (resetBtn) resetBtn.style.display = 'none';
+
+            // مسح الإدخال
+            const textarea = document.getElementById('customTraineesInput');
+            if (textarea) textarea.value = '';
+            const statsEl = document.getElementById('customTraineesStats');
+            if (statsEl) statsEl.style.display = 'none';
+
+            updateCustomTraineesBadge();
+            renderAllData();
+            showToast('تم مسح المتدربين المحددين', 'info');
+        }
+
+        // حذف متدرب محدد واحد
+        function removeCustomTrainee(id) {
+            customTraineeIds = customTraineeIds.filter(tid => tid !== id);
+
+            // إخفاء زر المسح إذا لم يتبق متدربين
+            if (customTraineeIds.length === 0) {
+                const resetBtn = document.getElementById('customTraineesResetBtn');
+                if (resetBtn) resetBtn.style.display = 'none';
+            }
+
+            updateCustomTraineesBadge();
+            renderAllData();
+        }
+
+        // تحديث شارة العدد على زر المتدربين المحددين
+        function updateCustomTraineesBadge() {
+            const badge = document.getElementById('customTraineesBadge');
+            if (!badge) return;
+
+            if (customTraineeIds.length > 0) {
+                badge.textContent = customTraineeIds.length;
+                badge.style.display = '';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        //  المدرب المحدد - Custom Trainer Functions
+        // ═══════════════════════════════════════════════════════════════
+
+        function toggleCustomTrainerPopup() {
+            const overlay = document.getElementById('customTrainerOverlay');
+            if (!overlay) return;
+
+            if (overlay.style.display === 'none') {
+                overlay.style.display = 'flex';
+                // نسخ المدربين المعتمدين إلى المؤقتة
+                pendingTrainerIds = [...customTrainerIds];
+                updateTrainerPopupChips();
+                updateTrainerApplyButton();
+                const input = document.getElementById('customTrainerSearchInput');
+                if (input) {
+                    input.value = '';
+                    setTimeout(() => input.focus(), 100);
+                }
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function closeCustomTrainerPopup(event) {
+            if (event && event.target !== event.currentTarget) return;
+            const overlay = document.getElementById('customTrainerOverlay');
+            if (overlay) overlay.style.display = 'none';
+            // إغلاق القائمة المنسدلة
+            const dropdown = document.getElementById('customTrainerDropdown');
+            if (dropdown) dropdown.classList.remove('show');
+        }
+
+        function searchCustomTrainers(searchTerm) {
+            const dropdown = document.getElementById('customTrainerDropdown');
+            if (!dropdown) return;
+
+            const term = searchTerm.toLowerCase().trim();
+
+            // تصفية المدربين
+            let filtered = Object.values(trainers).filter(t => {
+                const searchable = `${t.id} ${t.name}`.toLowerCase();
+                return searchable.includes(term);
+            });
+
+            // استبعاد المختارين مسبقاً
+            filtered = filtered.filter(t => !pendingTrainerIds.includes(t.id));
+
+            // عرض أول 20 نتيجة
+            filtered = filtered.slice(0, 20);
+
+            dropdown.innerHTML = filtered.length === 0 ?
+                '<div style="padding: 0.5rem; text-align: center; color: var(--text-muted); font-size: 0.8rem;">لا توجد نتائج</div>' :
+                filtered.map(t => `
+                    <div class="custom-trainer-dropdown-item" onclick="selectPendingTrainer('${t.id}')">
+                        <span>${t.name}</span>
+                        <span class="trainer-id-hint">${t.id} (${t.sections.length} شعبة)</span>
+                    </div>
+                `).join('');
+
+            dropdown.classList.add('show');
+        }
+
+        function selectPendingTrainer(trainerId) {
+            if (pendingTrainerIds.includes(trainerId)) return;
+            pendingTrainerIds.push(trainerId);
+            updateTrainerPopupChips();
+            updateTrainerApplyButton();
+
+            // مسح البحث وإغلاق القائمة
+            const input = document.getElementById('customTrainerSearchInput');
+            if (input) input.value = '';
+            const dropdown = document.getElementById('customTrainerDropdown');
+            if (dropdown) dropdown.classList.remove('show');
+        }
+
+        function removePendingTrainer(trainerId) {
+            pendingTrainerIds = pendingTrainerIds.filter(id => id !== trainerId);
+            updateTrainerPopupChips();
+            updateTrainerApplyButton();
+        }
+
+        function updateTrainerPopupChips() {
+            const container = document.getElementById('customTrainerSelectedChips');
+            if (!container) return;
+
+            container.innerHTML = pendingTrainerIds.map(id => {
+                const trainer = trainers[id];
+                const name = trainer ? trainer.name : id;
+                return `
+                    <div class="custom-trainer-chip">
+                        <span>${name}</span>
+                        <button onclick="removePendingTrainer('${id}')" title="إزالة">×</button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateTrainerApplyButton() {
+            const btn = document.getElementById('btnApplyTrainers');
+            if (btn) btn.disabled = pendingTrainerIds.length === 0;
+        }
+
+        function applyCustomTrainers() {
+            customTrainerIds = [...pendingTrainerIds];
+
+            if (customTrainerIds.length === 0) {
+                showToast('لم يتم اختيار أي مدرب', 'error');
+                return;
+            }
+
+            // إغلاق النافذة
+            const overlay = document.getElementById('customTrainerOverlay');
+            if (overlay) overlay.style.display = 'none';
+
+            // إظهار زر المسح
+            const resetBtn = document.getElementById('customTrainerResetBtn');
+            if (resetBtn) resetBtn.style.display = 'flex';
+
+            updateCustomTrainerBadge();
+            renderAllData();
+            showToast(`تم تحديد ${customTrainerIds.length} مدرب`, 'success');
+        }
+
+        function clearCustomTrainers() {
+            customTrainerIds = [];
+            pendingTrainerIds = [];
+
+            const resetBtn = document.getElementById('customTrainerResetBtn');
+            if (resetBtn) resetBtn.style.display = 'none';
+
+            const input = document.getElementById('customTrainerSearchInput');
+            if (input) input.value = '';
+
+            updateCustomTrainerBadge();
+            renderAllData();
+            showToast('تم مسح المدربين المحددين', 'info');
+        }
+
+        function removeCustomTrainer(trainerId) {
+            customTrainerIds = customTrainerIds.filter(id => id !== trainerId);
+            updateCustomTrainerBadge();
+
+            if (customTrainerIds.length === 0) {
+                const resetBtn = document.getElementById('customTrainerResetBtn');
+                if (resetBtn) resetBtn.style.display = 'none';
+            }
+
+            renderAllData();
+            showToast('تم إزالة المدرب', 'info');
+        }
+
+        function updateCustomTrainerBadge() {
+            const badge = document.getElementById('customTrainerBadge');
+            if (!badge) return;
+
+            if (customTrainerIds.length > 0) {
+                badge.textContent = customTrainerIds.length;
+                badge.style.display = '';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        // إغلاق dropdown المدرب عند النقر خارجها
+        document.addEventListener('click', function (e) {
+            const wrapper = document.querySelector('.custom-trainer-search-wrapper');
+            const dropdown = document.getElementById('customTrainerDropdown');
+            if (wrapper && dropdown && !wrapper.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // ═══════════════════════════════════════════════════════════════
+        //  القاعة المحددة - Custom Room Functions
+        // ═══════════════════════════════════════════════════════════════
+
+        function getAllRoomNames() {
+            const rooms = new Set();
+            Object.values(sections).forEach(section => {
+                if (section.room) rooms.add(section.room);
+            });
+            return rooms;
+        }
+
+        function selectAllRooms() {
+            const allRooms = getAllRoomNames();
+            const textarea = document.getElementById('customRoomInput');
+            if (!textarea || allRooms.size === 0) {
+                showToast('لا توجد قاعات متاحة', 'error');
+                return;
+            }
+            textarea.value = [...allRooms].join('\n');
+            previewCustomRooms();
+        }
+
+        function parseRoomNamesFromText(text) {
+            if (!text || !text.trim()) return [];
+            // فصل بسطر جديد أو فاصلة
+            const parts = text.split(/[\n,]+/);
+            const names = [];
+            parts.forEach(part => {
+                const trimmed = part.trim();
+                if (trimmed) names.push(trimmed);
+            });
+            return [...new Set(names)]; // إزالة التكرار
+        }
+
+        function toggleCustomRoomPopup() {
+            const overlay = document.getElementById('customRoomOverlay');
+            if (!overlay) return;
+
+            if (overlay.style.display === 'none') {
+                overlay.style.display = 'flex';
+                const textarea = document.getElementById('customRoomInput');
+                if (textarea) {
+                    if (customRoomNames.length > 0) {
+                        textarea.value = customRoomNames.join('\n');
+                        previewCustomRooms();
+                    }
+                    setTimeout(() => textarea.focus(), 100);
+                }
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function closeCustomRoomPopup(event) {
+            if (event && event.target !== event.currentTarget) return;
+            const overlay = document.getElementById('customRoomOverlay');
+            if (overlay) overlay.style.display = 'none';
+        }
+
+        function previewCustomRooms() {
+            const textarea = document.getElementById('customRoomInput');
+            const statsEl = document.getElementById('customRoomStats');
+            const foundEl = document.getElementById('roomStatFound');
+            const notFoundEl = document.getElementById('roomStatNotFound');
+            const applyBtn = document.getElementById('btnApplyRooms');
+
+            if (!textarea || !statsEl) return;
+
+            const names = parseRoomNamesFromText(textarea.value);
+
+            if (names.length === 0) {
+                statsEl.style.display = 'none';
+                if (applyBtn) applyBtn.disabled = true;
+                return;
+            }
+
+            const allRooms = getAllRoomNames();
+            let foundCount = 0;
+            let notFoundCount = 0;
+
+            names.forEach(name => {
+                if (allRooms.has(name)) {
+                    foundCount++;
+                } else {
+                    notFoundCount++;
+                }
+            });
+
+            statsEl.style.display = 'flex';
+            foundEl.textContent = `✅ تم العثور على: ${foundCount} قاعة`;
+            notFoundEl.textContent = notFoundCount > 0 ? `❌ غير موجودة: ${notFoundCount}` : '';
+
+            if (applyBtn) applyBtn.disabled = foundCount === 0;
+        }
+
+        function applyCustomRooms() {
+            const textarea = document.getElementById('customRoomInput');
+            if (!textarea) return;
+
+            const names = parseRoomNamesFromText(textarea.value);
+            const allRooms = getAllRoomNames();
+            customRoomNames = names.filter(name => allRooms.has(name));
+
+            if (customRoomNames.length === 0) {
+                showToast('لم يتم العثور على أي قاعة', 'error');
+                return;
+            }
+
+            const overlay = document.getElementById('customRoomOverlay');
+            if (overlay) overlay.style.display = 'none';
+
+            const resetBtn = document.getElementById('customRoomResetBtn');
+            if (resetBtn) resetBtn.style.display = 'flex';
+
+            updateCustomRoomBadge();
+
+            // تفعيل إظهار القاعات تلقائياً
+            if (!showRooms) {
+                showRooms = true;
+                updateRoomsUI();
+            }
+
+            renderAllData();
+            showToast(`تم تحديد ${customRoomNames.length} قاعة`, 'success');
+        }
+
+        function clearCustomRooms() {
+            customRoomNames = [];
+
+            const resetBtn = document.getElementById('customRoomResetBtn');
+            if (resetBtn) resetBtn.style.display = 'none';
+
+            const textarea = document.getElementById('customRoomInput');
+            if (textarea) textarea.value = '';
+            const statsEl = document.getElementById('customRoomStats');
+            if (statsEl) statsEl.style.display = 'none';
+
+            updateCustomRoomBadge();
+            renderAllData();
+            showToast('تم مسح القاعات المحددة', 'info');
+        }
+
+        function removeCustomRoom(roomName) {
+            customRoomNames = customRoomNames.filter(name => name !== roomName);
+            updateCustomRoomBadge();
+
+            if (customRoomNames.length === 0) {
+                const resetBtn = document.getElementById('customRoomResetBtn');
+                if (resetBtn) resetBtn.style.display = 'none';
+            }
+
+            renderAllData();
+            showToast(`تم إزالة القاعة: ${roomName}`, 'info');
+        }
+
+        function updateCustomRoomBadge() {
+            const badge = document.getElementById('customRoomBadge');
+            if (!badge) return;
+
+            if (customRoomNames.length > 0) {
+                badge.textContent = customRoomNames.length;
+                badge.style.display = '';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
         // ═══════════════════════════════════════════════════════════════
         //  Multi-Select Component Functions
         // ═══════════════════════════════════════════════════════════════
@@ -7206,8 +9325,6 @@
 
         // Update trigger text and count badge
         function updateMultiSelectState(filterId) {
-            console.log('🔵 [updateMultiSelectState] بداية التنفيذ، filterId:', filterId);
-
             const container = document.getElementById(filterId);
             const list = document.getElementById(filterId.replace('Filter', 'List'));
             const trigger = container.querySelector('.multi-select-trigger span:first-child');
@@ -7216,20 +9333,15 @@
             const checked = list.querySelectorAll('input[type="checkbox"]:checked');
             const count = checked.length;
 
-            console.log('📊 [updateMultiSelectState] checked elements:', checked);
-            console.log('📊 [updateMultiSelectState] count:', count);
-
             if (count === 0) {
                 trigger.textContent = 'الكل';
                 badge.style.display = 'none';
-                console.log('🟡 [updateMultiSelectState] لا توجد اختيارات');
             } else {
                 // Get text from the label span with .option-text class
                 const firstText = checked[0].closest('label').querySelector('.option-text').textContent;
                 trigger.textContent = count === 1 ? firstText : `${count} مختار`;
                 badge.textContent = count;
                 badge.style.display = 'inline';
-                console.log('🟢 [updateMultiSelectState] تم اختيار:', count, 'أول عنصر:', firstText);
             }
 
             // تحديث الـ class على كل label لعرض علامة الصح بشكل صحيح
@@ -7246,64 +9358,6 @@
             applyCascadingFilters();
         }
 
-        // ═══════════════════════════════════════════════════════════════
-        //  فلاتر متتالية (AND logic) - جميع الشروط يجب أن تتحقق
-        // ═══════════════════════════════════════════════════════════════
-
-        // جمع القيم المختارة من فلتر معين
-        function getSelectedValues(filterId) {
-            const list = document.getElementById(filterId.replace('Filter', 'List'));
-            if (!list) return [];
-            const checked = list.querySelectorAll('input[type="checkbox"]:checked');
-            return Array.from(checked).map(cb => cb.value);
-        }
-
-        // تطبيق الفلاتر المتتالية
-        function applyCascadingFilters() {
-            // جمع جميع القيم المختارة
-            selectedFilters.departments = getSelectedValues('departmentFilter');
-            selectedFilters.prefixes = getSelectedValues('prefixFilter');
-            selectedFilters.scheduleTypes = getSelectedValues('scheduleTypeFilter');
-
-            console.log('🔍 الفلاتر المطبقة:', selectedFilters);
-
-            // إعادة عرض الجداول
-            if (Object.keys(trainers).length > 0) {
-                renderTrainersTable();
-                renderTraineesTable();
-            }
-        }
-
-        // التحقق من تطابق الشعبة مع الفلاتر (AND logic)
-        function sectionMatchesFilters(section) {
-            // إذا لم تُختر أي قيم من فلتر، يُعتبر مطابقاً
-            // إذا اختيرت قيم، يجب أن تكون الشعبة ضمنها
-
-            // فلتر القسم
-            if (selectedFilters.departments.length > 0) {
-                if (!selectedFilters.departments.includes(section.department)) {
-                    return false;
-                }
-            }
-
-            // فلتر رمز المقرر (الحروف فقط)
-            if (selectedFilters.prefixes.length > 0) {
-                const coursePrefix = (section.courseCode || '').replace(/[-\d]/g, '').trim();
-                if (!selectedFilters.prefixes.includes(coursePrefix)) {
-                    return false;
-                }
-            }
-
-            // فلتر نوع الشعبة
-            if (selectedFilters.scheduleTypes.length > 0) {
-                if (!selectedFilters.scheduleTypes.includes(section.scheduleType)) {
-                    return false;
-                }
-            }
-
-            // كل الفلاتر تطابقت
-            return true;
-        }
 
         // Populate multi-select lists
         function populateMultiSelectLists() {
@@ -7499,11 +9553,12 @@
                     ? `<span class="chip-available" title="متاحين للنقل للشعب المستهدفة">${availableCount}</span>`
                     : '';
 
+                const visColor = getVisibleSectionColor(refNum);
                 return `
-                    <div class="section-chip visible" title="${tooltipLines}">
-                        <span class="chip-ref">${refNum}</span>
+                    <div class="section-chip visible" title="${tooltipLines}" style="border-right: 3px solid ${visColor};">
+                        <span class="chip-ref" style="background: ${visColor};">${refNum}</span>
                         <span>${section.courseCode}</span>
-                        <span class="chip-count">${section.enrolled}</span>
+                        <span class="chip-count" style="background: ${visColor};">${section.enrolled}</span>
                         ${availableBadge}
                         <button class="chip-remove" onclick="removeVisibleSection('${refNum}')">×</button>
                     </div>`;
@@ -7621,15 +9676,16 @@
                 ].filter(Boolean).join('\n');
 
                 // عرض عدد المتاحين فقط إذا كانت هناك شعب ظاهرة
-                const availableBadge = visibleSections.length > 0
+                const availableBadge = (visibleSections.length > 0 || customTraineeIds.length > 0)
                     ? `<span class="chip-available" title="متاحين للنقل من الشعب الظاهرة">${availableCount}</span>`
                     : '';
 
+                const tgtColor = getTargetSectionColor(refNum);
                 return `
-                    <div class="section-chip target" title="${tooltipLines}">
-                        <span class="chip-ref">${refNum}</span>
+                    <div class="section-chip target" title="${tooltipLines}" style="border-right: 3px solid ${tgtColor};">
+                        <span class="chip-ref" style="background: ${tgtColor};">${refNum}</span>
                         <span>${section.courseCode}</span>
-                        <span class="chip-count">${section.enrolled}</span>
+                        <span class="chip-count" style="background: ${tgtColor};">${section.enrolled}</span>
                         ${availableBadge}
                         <button class="chip-remove" onclick="removeTargetSection('${refNum}')">×</button>
                     </div>`;
@@ -7641,14 +9697,16 @@
         // ═══════════════════════════════════════════════════════════════
         function countAvailableForTarget(targetRefNum) {
             // إذا لم تكن هناك شعب ظاهرة، لا نحسب
-            if (visibleSections.length === 0) return 0;
+            if (visibleSections.length === 0 && customTraineeIds.length === 0) return 0;
 
             const targetSection = sections[targetRefNum];
             if (!targetSection) return 0;
 
-            // الحصول على المتدربين من الشعب الظاهرة
+            // الحصول على المتدربين من الشعب الظاهرة + المحددين
             const visibleTrainees = Object.values(trainees).filter(trainee => {
-                return trainee.registrations.some(r => visibleSections.includes(r.refNum));
+                const inVisible = trainee.registrations.some(r => visibleSections.includes(r.refNum));
+                const isCustom = customTraineeIds.includes(trainee.id);
+                return inVisible || isCustom;
             });
 
             // حساب المتدربين الذين ليس لديهم تعارض مع هذه الشعبة المستهدفة
@@ -7790,16 +9848,7 @@
         // التهيئة
         initUploadPage();
 
-        // نسخ رقم المتدرب بالنقر المزدوج
-        document.addEventListener('dblclick', (e) => {
-            const traineeId = e.target.closest('.trainee-id');
-            if (traineeId) {
-                const id = traineeId.textContent.trim().split('\n')[0].trim();
-                navigator.clipboard.writeText(id).then(() => {
-                    showToast(`تم نسخ الرقم: ${id}`, 'success');
-                });
-            }
-        });
+
 
         // للتجربة: عرض الصفحة الرئيسية مباشرة (اضغط Ctrl+Shift+D)
         document.addEventListener('keydown', (e) => {
@@ -7975,6 +10024,123 @@
         checkAppVersion();
 
     </script>
+    <!-- نافذة المتدربين المحددين (مستوى body لمنع القص) -->
+    <div class="custom-trainees-overlay" id="customTraineesOverlay" style="display: none;"
+        onclick="closeCustomTraineesPopup(event)">
+        <div class="custom-trainees-popup" onclick="event.stopPropagation()">
+            <div class="custom-trainees-header">
+                <h3><i data-lucide="users" style="width:20px;height:20px;vertical-align:middle;margin-left:6px;"></i>
+                    إضافة متدربين محددين</h3>
+                <button class="popup-close-btn" onclick="closeCustomTraineesPopup()">
+                    <i data-lucide="x" style="width:18px;height:18px;"></i>
+                </button>
+            </div>
+            <div class="custom-trainees-body">
+                <textarea id="customTraineesInput" class="custom-trainees-textarea"
+                    placeholder="الصق أرقام المتدربين هنا...&#10;يمكن لصق نصوص تحتوي أرقام وأسماء - سيتم استخراج الأرقام تلقائياً&#10;&#10;مثال:&#10;430112345 أحمد محمد&#10;430198765&#10;430154321 خالد علي"
+                    oninput="previewCustomTrainees()"></textarea>
+                <div class="custom-trainees-hint">
+                    <i data-lucide="info" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"></i>
+                    يتم استخراج الأرقام تلقائياً من النص — افصل بسطر جديد أو فراغ أو فاصلة
+                </div>
+                <div class="custom-trainees-stats" id="customTraineesStats" style="display: none;">
+                    <span class="stat-found" id="statFound"></span>
+                    <span class="stat-notfound" id="statNotFound"></span>
+                </div>
+            </div>
+            <div class="custom-trainees-footer">
+                <button class="btn-apply-trainees" onclick="applyCustomTrainees()" id="btnApplyTrainees" disabled>
+                    <i data-lucide="check" style="width:16px;height:16px;vertical-align:middle;margin-left:4px;"></i>
+                    اعتماد
+                </button>
+                <button class="btn-cancel-trainees" onclick="closeCustomTraineesPopup()">
+                    إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- نافذة المدرب المحدد (مستوى body لمنع القص) -->
+    <div class="custom-trainees-overlay" id="customTrainerOverlay" style="display: none;"
+        onclick="closeCustomTrainerPopup(event)">
+        <div class="custom-trainees-popup" onclick="event.stopPropagation()">
+            <div class="custom-trainees-header">
+                <h3><i data-lucide="user-check"
+                        style="width:20px;height:20px;vertical-align:middle;margin-left:6px;"></i>
+                    تحديد مدربين</h3>
+                <button class="popup-close-btn" onclick="closeCustomTrainerPopup()">
+                    <i data-lucide="x" style="width:18px;height:18px;"></i>
+                </button>
+            </div>
+            <div class="custom-trainees-body">
+                <div class="custom-trainer-search-wrapper">
+                    <input type="text" id="customTrainerSearchInput" class="custom-trainer-search-input"
+                        placeholder="ابحث باسم المدرب أو رقمه..." oninput="searchCustomTrainers(this.value)"
+                        onfocus="searchCustomTrainers(this.value)" autocomplete="off">
+                    <div class="custom-trainer-dropdown" id="customTrainerDropdown"></div>
+                </div>
+                <div class="custom-trainees-hint">
+                    <i data-lucide="info" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"></i>
+                    اكتب جزء من اسم المدرب ثم اختره من القائمة
+                </div>
+                <div class="custom-trainer-selected" id="customTrainerSelectedChips"></div>
+            </div>
+            <div class="custom-trainees-footer">
+                <button class="btn-apply-trainer" onclick="applyCustomTrainers()" id="btnApplyTrainers" disabled>
+                    <i data-lucide="check" style="width:16px;height:16px;vertical-align:middle;margin-left:4px;"></i>
+                    اعتماد
+                </button>
+                <button class="btn-cancel-trainees" onclick="closeCustomTrainerPopup()">
+                    إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- نافذة القاعة المحددة (مستوى body لمنع القص) -->
+    <div class="custom-trainees-overlay" id="customRoomOverlay" style="display: none;"
+        onclick="closeCustomRoomPopup(event)">
+        <div class="custom-trainees-popup" onclick="event.stopPropagation()">
+            <div class="custom-trainees-header">
+                <h3><i data-lucide="building" style="width:20px;height:20px;vertical-align:middle;margin-left:6px;"></i>
+                    تحديد قاعات</h3>
+                <button class="popup-close-btn" onclick="closeCustomRoomPopup()">
+                    <i data-lucide="x" style="width:18px;height:18px;"></i>
+                </button>
+            </div>
+            <div class="custom-trainees-body">
+                <textarea id="customRoomInput" class="custom-room-textarea"
+                    placeholder="الصق أسماء القاعات هنا...&#10;افصل بسطر جديد أو فراغ أو فاصلة&#10;&#10;مثال:&#10;A-101&#10;B-202 C-303&#10;D-404, E-505"
+                    oninput="previewCustomRooms()"></textarea>
+                <div class="custom-trainees-hint"
+                    style="display: flex; align-items: center; justify-content: space-between;">
+                    <span>
+                        <i data-lucide="info" style="width:14px;height:14px;vertical-align:middle;margin-left:4px;"></i>
+                        أدخل أسماء القاعات — افصل بسطر جديد أو فاصلة
+                    </span>
+                    <button onclick="selectAllRooms()"
+                        style="background: rgba(34,197,94,0.15); color: #22c55e; border: 1px solid rgba(34,197,94,0.4); border-radius: 6px; padding: 4px 10px; cursor: pointer; font-size: 0.75rem; font-family: inherit; transition: all 0.2s ease;"
+                        onmouseover="this.style.background='rgba(34,197,94,0.3)'"
+                        onmouseout="this.style.background='rgba(34,197,94,0.15)'">
+                        <i data-lucide="list-checks"
+                            style="width:13px;height:13px;vertical-align:middle;margin-left:3px;"></i>
+                        جميع القاعات
+                    </button>
+                </div>
+                <div class="custom-trainees-stats" id="customRoomStats" style="display: none;">
+                    <span class="stat-found" id="roomStatFound"></span>
+                    <span class="stat-notfound" id="roomStatNotFound"></span>
+                </div>
+            </div>
+            <div class="custom-trainees-footer">
+                <button class="btn-apply-room" onclick="applyCustomRooms()" id="btnApplyRooms" disabled>
+                    <i data-lucide="check" style="width:16px;height:16px;vertical-align:middle;margin-left:4px;"></i>
+                    اعتماد
+                </button>
+                <button class="btn-cancel-trainees" onclick="closeCustomRoomPopup()">
+                    إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
